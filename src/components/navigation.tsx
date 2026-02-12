@@ -28,7 +28,7 @@ export function Navigation() {
             <div className="h-8 w-8 rounded-lg bg-primary flex items-center justify-center flex-shrink-0">
               <span className="text-primary-foreground font-bold text-lg">L</span>
             </div>
-            <span className="font-bold text-xl hidden sm:inline">LeoStack</span>
+            <span className="font-bold text-xl hidden sm:inline">ContentCursor</span>
           </Link>
         </div>
 

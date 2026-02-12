@@ -40,7 +40,7 @@ export function HeroSection() {
 
           <div className="mt-16 flex flex-col items-center space-y-4">
             <p className="text-sm text-muted-foreground">
-              Join thousands of developers building with LeoStack
+              Join thousands of developers building with ContentCursor
             </p>
             <div className="flex items-center space-x-1">
               {[1, 2, 3, 4, 5].map((star) => (

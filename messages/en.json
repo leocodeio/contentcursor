@@ -65,7 +65,7 @@
     "badge": "Testimonials",
     "heading": "Loved by developers",
     "headingHighlight": "worldwide",
-    "description": "See what developers and companies are saying about LeoStack",
+    "description": "See what developers and companies are saying about ContentCursor",
     "trustIndicator": "Trusted by leading companies worldwide",
     "stats": {
       "activeDevelopers": "Active Developers",
@@ -78,42 +78,42 @@
         "name": "Sarah Johnson",
         "role": "CTO at TechCorp",
         "company": "TechCorp",
-        "content": "LeoStack transformed our development workflow. We went from concept to production in record time. The built-in authentication and database integration saved us weeks of development.",
+        "content": "ContentCursor transformed our development workflow. We went from concept to production in record time. The built-in authentication and database integration saved us weeks of development.",
         "rating": 5
       },
       {
         "name": "Michael Chen",
         "role": "Lead Developer",
         "company": "StartupXYZ",
-        "content": "The TypeScript integration is flawless. We've reduced our bug rate by 60% since switching to LeoStack. The documentation is excellent and the community support is outstanding.",
+        "content": "The TypeScript integration is flawless. We've reduced our bug rate by 60% since switching to ContentCursor. The documentation is excellent and the community support is outstanding.",
         "rating": 5
       },
       {
         "name": "Emily Rodriguez",
         "role": "Product Manager",
         "company": "InnovateLabs",
-        "content": "As a non-technical founder, LeoStack made it possible for me to launch our MVP without hiring a full dev team first. The templates and components are production-ready and the deployment is seamless.",
+        "content": "As a non-technical founder, ContentCursor made it possible for me to launch our MVP without hiring a full dev team first. The templates and components are production-ready and the deployment is seamless.",
         "rating": 5
       },
       {
         "name": "David Kim",
         "role": "Senior Developer",
         "company": "DevStudio",
-        "content": "We've tried many boilerplates, but LeoStack stands out with its modern architecture and attention to detail. The shadcn/ui integration and dark mode support are game-changers.",
+        "content": "We've tried many boilerplates, but ContentCursor stands out with its modern architecture and attention to detail. The shadcn/ui integration and dark mode support are game-changers.",
         "rating": 5
       },
       {
         "name": "Lisa Thompson",
         "role": "Engineering Manager",
         "company": "ScaleUp Inc",
-        "content": "Our team productivity increased by 40% after adopting LeoStack. The consistent code patterns and built-in best practices made onboarding new developers effortless.",
+        "content": "Our team productivity increased by 40% after adopting ContentCursor. The consistent code patterns and built-in best practices made onboarding new developers effortless.",
         "rating": 5
       },
       {
         "name": "Alex Rivera",
         "role": "Full Stack Developer",
         "company": "CodeCraft",
-        "content": "The AI-powered features are incredible. Code generation and smart refactoring have cut our development time in half. LeoStack is the future of web development.",
+        "content": "The AI-powered features are incredible. Code generation and smart refactoring have cut our development time in half. ContentCursor is the future of web development.",
         "rating": 5
       }
     ]
@@ -233,39 +233,39 @@
     "badge": "FAQ",
     "title": "Frequently Asked",
     "titleHighlight": "Questions",
-    "subtitle": "Everything you need to know about LeoStack. Can't find what you're looking for? Contact our support team.",
+    "subtitle": "Everything you need to know about ContentCursor. Can't find what you're looking for? Contact our support team.",
     "questions": {
       "q1": {
-        "question": "What is LeoStack and how does it work?",
-        "answer": "LeoStack is a comprehensive full-stack development platform built on Next.js, TypeScript, and modern web technologies. It provides everything you need to build production-ready web applications quickly and efficiently, including authentication, database integration, UI components, and deployment tools."
+        "question": "What is ContentCursor and how does it work?",
+        "answer": "ContentCursor is a comprehensive full-stack development platform built on Next.js, TypeScript, and modern web technologies. It provides everything you need to build production-ready web applications quickly and efficiently, including authentication, database integration, UI components, and deployment tools."
       },
       "q2": {
-        "question": "Do I need to be an expert developer to use LeoStack?",
-        "answer": "While LeoStack is designed for developers of all skill levels, having basic knowledge of JavaScript/TypeScript and React will help you get the most out of it. We provide extensive documentation, tutorials, and community support to help you learn and build effectively."
+        "question": "Do I need to be an expert developer to use ContentCursor?",
+        "answer": "While ContentCursor is designed for developers of all skill levels, having basic knowledge of JavaScript/TypeScript and React will help you get the most out of it. We provide extensive documentation, tutorials, and community support to help you learn and build effectively."
       },
       "q3": {
-        "question": "Can I use LeoStack for commercial projects?",
-        "answer": "Absolutely! LeoStack is perfect for commercial applications. Our Pro and Enterprise plans include all the features you need for production deployments, including custom domains, advanced security, and priority support."
+        "question": "Can I use ContentCursor for commercial projects?",
+        "answer": "Absolutely! ContentCursor is perfect for commercial applications. Our Pro and Enterprise plans include all the features you need for production deployments, including custom domains, advanced security, and priority support."
       },
       "q4": {
         "question": "How does the database integration work?",
-        "answer": "LeoStack comes with built-in Prisma integration, supporting multiple database providers including PostgreSQL, MySQL, SQLite, and MongoDB. We handle migrations, schema management, and provide type-safe database queries out of the box."
+        "answer": "ContentCursor comes with built-in Prisma integration, supporting multiple database providers including PostgreSQL, MySQL, SQLite, and MongoDB. We handle migrations, schema management, and provide type-safe database queries out of the box."
       },
       "q5": {
-        "question": "Is LeoStack secure for handling sensitive data?",
-        "answer": "Yes, security is a top priority. LeoStack includes enterprise-grade security features like encrypted data storage, secure authentication flows, GDPR compliance, and regular security audits. All data is encrypted in transit and at rest."
+        "question": "Is ContentCursor secure for handling sensitive data?",
+        "answer": "Yes, security is a top priority. ContentCursor includes enterprise-grade security features like encrypted data storage, secure authentication flows, GDPR compliance, and regular security audits. All data is encrypted in transit and at rest."
       },
       "q6": {
         "question": "Can I customize the UI components and styling?",
-        "answer": "Definitely! LeoStack uses Tailwind CSS and shadcn/ui components that are fully customizable. You can modify colors, fonts, spacing, and component behavior to match your brand perfectly."
+        "answer": "Definitely! ContentCursor uses Tailwind CSS and shadcn/ui components that are fully customizable. You can modify colors, fonts, spacing, and component behavior to match your brand perfectly."
       },
       "q7": {
         "question": "What kind of support do you provide?",
         "answer": "We offer multiple support channels: community forums, detailed documentation, video tutorials, and priority email support for Pro users. Enterprise customers get dedicated support with phone and video calls."
       },
       "q8": {
-        "question": "Can I migrate my existing project to LeoStack?",
-        "answer": "Yes! LeoStack is designed to be flexible. You can gradually migrate existing projects or start fresh. We provide migration guides and tools to help you transition smoothly."
+        "question": "Can I migrate my existing project to ContentCursor?",
+        "answer": "Yes! ContentCursor is designed to be flexible. You can gradually migrate existing projects or start fresh. We provide migration guides and tools to help you transition smoothly."
       },
       "q9": {
         "question": "Do you offer training or workshops?",
@@ -273,12 +273,12 @@
       },
       "q10": {
         "question": "What's your refund policy?",
-        "answer": "We offer a 30-day money-back guarantee for all paid plans. If you're not completely satisfied with LeoStack, we'll refund your payment, no questions asked."
+        "answer": "We offer a 30-day money-back guarantee for all paid plans. If you're not completely satisfied with ContentCursor, we'll refund your payment, no questions asked."
       }
     },
     "supportSection": {
       "title": "Need More Help?",
-      "subtitle": "Our support team is here to help you succeed with LeoStack",
+      "subtitle": "Our support team is here to help you succeed with ContentCursor",
       "options": {
         "community": {
           "title": "Community Support",
@@ -304,7 +304,7 @@
     },
     "contactCta": {
       "title": "Still have questions?",
-      "description": "Our friendly support team is ready to help you with any questions about LeoStack, from technical issues to best practices.",
+      "description": "Our friendly support team is ready to help you with any questions about ContentCursor, from technical issues to best practices.",
       "contactButton": "Contact Support",
       "scheduleButton": "Schedule a Call"
     }
@@ -391,7 +391,7 @@
       "privacy": "We respect your privacy. Unsubscribe at any time."
     },
     "company": {
-      "name": "LeoStack",
+      "name": "ContentCursor",
       "description": "The complete full-stack solution for modern web applications. Built with Next.js, TypeScript, and the best practices in mind. Created by Harshax leocodeio, a Full Stack Developer specializing in web applications and AI projects.",
       "contact": {
         "email": "hello@leocode.tech",
@@ -442,7 +442,7 @@
       }
     },
     "bottom": {
-      "copyright": "© 2025 LeoStack by Harshax leocodeio. All rights reserved.",
+      "copyright": "© 2025 ContentCursor by Harshax leocodeio. All rights reserved.",
       "madeWith": "Made with ❤️ by Harshax"
     },
     "social": {
