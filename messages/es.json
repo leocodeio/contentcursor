@@ -1,0 +1,436 @@
+{
+  "Navigation": {
+    "features": "Características",
+    "pricing": "Precios",
+    "testimonials": "Testimonios",
+    "faq": "Preguntas frecuentes",
+    "signIn": "Iniciar sesión",
+    "getStarted": "Comenzar"
+  },
+   "Hero": {
+    "title": "Construye tu SaaS más rápido",
+    "subtitle": "El boilerplate completo de Next.js con autenticación, pagos y todo lo que necesitas para lanzar tu SaaS.",
+    "cta": "Comenzar",
+    "learnMore": "Saber más",
+    "badge": "Con la confianza de 10,000+ desarrolladores en todo el mundo"
+  },
+  "Features": {
+    "title": "Todo lo que necesitas",
+    "subtitle": "Todas las características que necesitas para construir y escalar tu SaaS",
+    "badge": "Características",
+    "auth": {
+      "title": "Autenticación",
+      "description": "Autenticación segura con Better Auth",
+      "badge": "Rendimiento"
+    },
+    "payments": {
+      "title": "Pagos",
+      "description": "Procesamiento de pagos integrado con Stripe",
+      "badge": "Seguridad"
+    },
+    "database": {
+      "title": "Base de datos",
+      "description": "Prisma ORM con PostgreSQL",
+      "badge": "Base de datos"
+    },
+    "ui": {
+      "title": "UI moderna",
+      "description": "Componentes hermosos con shadcn/ui",
+      "badge": "Responsivo"
+    },
+    "typescript": {
+      "title": "TypeScript",
+      "description": "Completamente tipado para mejor DX",
+      "badge": "Experiencia de Desarrollador"
+    },
+    "darkMode": {
+      "title": "Modo oscuro",
+      "description": "Soporte integrado de modo oscuro",
+      "badge": "Escalabilidad"
+    },
+    "aiPowered": {
+      "badge": "🚀 Nueva Función",
+      "title": "Desarrollo Potenciado por IA",
+      "description": "Aprovecha el poder de la IA para acelerar tu proceso de desarrollo. Obtén sugerencias de código inteligentes, pruebas automatizadas y herramientas de refactorización inteligente integradas en tu flujo de trabajo.",
+      "features": {
+        "codeGeneration": "Generación de Código",
+        "smartRefactoring": "Refactorización Inteligente",
+        "automatedTesting": "Pruebas Automatizadas"
+      }
+    }
+  },
+   "Testimonials": {
+    "title": "Lo que dice la gente",
+    "subtitle": "Escucha a los desarrolladores que construyeron con nuestro stack",
+    "badge": "Testimonios",
+    "heading": "Amado por desarrolladores",
+    "headingHighlight": "en todo el mundo",
+    "description": "Mira lo que dicen los desarrolladores y empresas sobre LeoStack",
+    "trustIndicator": "Con la confianza de empresas líderes en todo el mundo",
+    "stats": {
+      "activeDevelopers": "Desarrolladores Activos",
+      "appsBuilt": "Aplicaciones Creadas",
+      "countries": "Países",
+      "uptime": "Tiempo de Actividad"
+    },
+    "items": [
+      {
+        "name": "Sarah Johnson",
+        "role": "CTO en TechCorp",
+        "company": "TechCorp",
+        "content": "LeoStack transformó nuestro flujo de trabajo de desarrollo. Pasamos de concepto a producción en tiempo récord. La autenticación integrada y la integración de base de datos nos ahorraron semanas de desarrollo.",
+        "rating": 5
+      },
+      {
+        "name": "Michael Chen",
+        "role": "Desarrollador Principal",
+        "company": "StartupXYZ",
+        "content": "La integración de TypeScript es impecable. Hemos reducido nuestra tasa de errores en un 60% desde que cambiamos a LeoStack. La documentación es excelente y el soporte comunitario es excepcional.",
+        "rating": 5
+      },
+      {
+        "name": "Emily Rodriguez",
+        "role": "Gerente de Producto",
+        "company": "InnovateLabs",
+        "content": "Como fundadora no técnica, LeoStack me permitió lanzar nuestro MVP sin contratar primero un equipo de desarrollo completo. Las plantillas y componentes están listos para producción y el despliegue es perfecto.",
+        "rating": 5
+      },
+      {
+        "name": "David Kim",
+        "role": "Desarrollador Senior",
+        "company": "DevStudio",
+        "content": "Hemos probado muchos boilerplates, pero LeoStack se destaca con su arquitectura moderna y atención al detalle. La integración de shadcn/ui y el soporte de modo oscuro son revolucionarios.",
+        "rating": 5
+      },
+      {
+        "name": "Lisa Thompson",
+        "role": "Gerente de Ingeniería",
+        "company": "ScaleUp Inc",
+        "content": "La productividad de nuestro equipo aumentó un 40% después de adoptar LeoStack. Los patrones de código consistentes y las mejores prácticas integradas hicieron que la incorporación de nuevos desarrolladores fuera effortless.",
+        "rating": 5
+      },
+      {
+        "name": "Alex Rivera",
+        "role": "Desarrollador Full Stack",
+        "company": "CodeCraft",
+        "content": "Las funciones impulsadas por IA son increíbles. La generación de código y la refactorización inteligente han reducido nuestro tiempo de desarrollo a la mitad. LeoStack es el futuro del desarrollo web.",
+        "rating": 5
+      }
+    ]
+  },
+  "Pricing": {
+    "title": "Precios Simples",
+    "subtitle": "Elige el plan que funcione para ti",
+    "badge": "Precios",
+    "heading": "Elige el plan perfecto para",
+    "headingHighlight": "tus necesidades",
+    "description": "Comienza gratis y escala a medida que creces. Todos los planes incluyen nuestras características principales.",
+    "monthly": "Mensual",
+    "yearly": "Anual",
+    "savePercent": "Ahorra 20%",
+    "mostPopular": "Más Popular",
+    "year": "año",
+    "month": "mes",
+    "forever": "siempre",
+    "limitations": "Limitaciones:",
+    "faqTitle": "Preguntas Frecuentes",
+    "enterpriseCta": {
+      "title": "¿Necesitas una Solución Personalizada?",
+      "description": "Contacta a nuestro equipo de ventas para obtener precios personalizados y características empresariales adaptadas a las necesidades de tu organización.",
+      "button": "Contactar Equipo de Ventas"
+    },
+    "plans": {
+      "starter": {
+        "name": "Starter",
+        "description": "Perfecto para desarrolladores individuales y proyectos pequeños",
+        "cta": "Comenzar Gratis",
+        "features": {
+          "projects": "Hasta 3 proyectos",
+          "auth": "Autenticación básica",
+          "support": "Soporte comunitario",
+          "storage": "1GB de almacenamiento de base de datos",
+          "analytics": "Análisis básicos",
+          "email": "Soporte por email"
+        },
+        "limitations": {
+          "api": "Llamadas API limitadas",
+          "domains": "Sin dominios personalizados",
+          "templates": "Solo plantillas básicas"
+        }
+      },
+      "pro": {
+        "name": "Pro",
+        "description": "Ideal para equipos en crecimiento y aplicaciones en producción",
+        "cta": "Iniciar Prueba Pro",
+        "features": {
+          "projects": "Proyectos ilimitados",
+          "auth": "Autenticación avanzada",
+          "support": "Soporte prioritario",
+          "storage": "100GB de almacenamiento de base de datos",
+          "analytics": "Análisis avanzados",
+          "domains": "Dominios personalizados",
+          "apiLimits": "Límites de API: 100k/mes",
+          "collaboration": "Colaboración en equipo",
+          "integrations": "Integraciones personalizadas"
+        }
+      },
+      "enterprise": {
+        "name": "Enterprise",
+        "description": "Para grandes organizaciones con requisitos avanzados",
+        "cta": "Contactar Ventas",
+        "features": {
+          "everything": "Todo en Pro",
+          "apiUnlimited": "Llamadas API ilimitadas",
+          "dedicatedSupport": "Soporte dedicado",
+          "unlimitedStorage": "Almacenamiento ilimitado",
+          "advancedSecurity": "Seguridad avanzada",
+          "sla": "Garantía SLA",
+          "customDeployment": "Despliegue personalizado",
+          "whiteLabel": "Opciones de marca blanca",
+          "advancedIntegrations": "Integraciones avanzadas",
+          "phoneSupport": "Soporte telefónico 24/7"
+        }
+      }
+    },
+    "faqs": {
+      "changePlan": {
+        "question": "¿Puedo cambiar mi plan en cualquier momento?",
+        "answer": "Sí, puedes actualizar o reducir tu plan en cualquier momento. Los cambios se aplican inmediatamente y prorrateamos cualquier cargo."
+      },
+      "freeTrial": {
+        "question": "¿Hay una prueba gratuita?",
+        "answer": "¡Sí! Ofrecemos una prueba gratuita de 14 días para todos los planes de pago. No se requiere tarjeta de crédito para comenzar."
+      },
+      "paymentMethods": {
+        "question": "¿Qué métodos de pago aceptan?",
+        "answer": "Aceptamos todas las principales tarjetas de crédito, PayPal y transferencias bancarias para clientes Enterprise."
+      },
+      "refunds": {
+        "question": "¿Ofrecen reembolsos?",
+        "answer": "Sí, ofrecemos una garantía de devolución de dinero de 30 días. Si no estás satisfecho, reembolsaremos tu pago."
+      }
+    }
+  },
+  "FAQ": {
+    "badge": "Preguntas Frecuentes",
+    "title": "Preguntas",
+    "titleHighlight": "Frecuentes",
+    "subtitle": "Todo lo que necesitas saber sobre LeoStack. ¿No encuentras lo que buscas? Contacta a nuestro equipo de soporte.",
+    "questions": {
+      "q1": {
+        "question": "¿Qué es LeoStack y cómo funciona?",
+        "answer": "LeoStack es una plataforma de desarrollo full-stack integral construida sobre Next.js, TypeScript y tecnologías web modernas. Proporciona todo lo que necesitas para construir aplicaciones web listas para producción de manera rápida y eficiente, incluyendo autenticación, integración de base de datos, componentes de UI y herramientas de implementación."
+      },
+      "q2": {
+        "question": "¿Necesito ser un desarrollador experto para usar LeoStack?",
+        "answer": "Si bien LeoStack está diseñado para desarrolladores de todos los niveles, tener conocimientos básicos de JavaScript/TypeScript y React te ayudará a sacarle el máximo provecho. Proporcionamos documentación extensa, tutoriales y soporte comunitario para ayudarte a aprender y construir de manera efectiva."
+      },
+      "q3": {
+        "question": "¿Puedo usar LeoStack para proyectos comerciales?",
+        "answer": "¡Absolutamente! LeoStack es perfecto para aplicaciones comerciales. Nuestros planes Pro y Enterprise incluyen todas las características que necesitas para implementaciones de producción, incluidos dominios personalizados, seguridad avanzada y soporte prioritario."
+      },
+      "q4": {
+        "question": "¿Cómo funciona la integración de la base de datos?",
+        "answer": "LeoStack viene con integración Prisma incorporada, compatible con múltiples proveedores de bases de datos, incluidos PostgreSQL, MySQL, SQLite y MongoDB. Manejamos migraciones, gestión de esquemas y proporcionamos consultas de base de datos type-safe desde el primer momento."
+      },
+      "q5": {
+        "question": "¿Es LeoStack seguro para manejar datos sensibles?",
+        "answer": "Sí, la seguridad es una prioridad principal. LeoStack incluye características de seguridad de nivel empresarial como almacenamiento de datos encriptado, flujos de autenticación seguros, cumplimiento GDPR y auditorías de seguridad regulares. Todos los datos están encriptados en tránsito y en reposo."
+      },
+      "q6": {
+        "question": "¿Puedo personalizar los componentes de UI y el estilo?",
+        "answer": "¡Definitivamente! LeoStack usa Tailwind CSS y componentes shadcn/ui que son completamente personalizables. Puedes modificar colores, fuentes, espaciado y comportamiento de componentes para que coincidan perfectamente con tu marca."
+      },
+      "q7": {
+        "question": "¿Qué tipo de soporte proporcionan?",
+        "answer": "Ofrecemos múltiples canales de soporte: foros comunitarios, documentación detallada, tutoriales en video y soporte por correo electrónico prioritario para usuarios Pro. Los clientes Enterprise obtienen soporte dedicado con llamadas telefónicas y de video."
+      },
+      "q8": {
+        "question": "¿Puedo migrar mi proyecto existente a LeoStack?",
+        "answer": "¡Sí! LeoStack está diseñado para ser flexible. Puedes migrar gradualmente proyectos existentes o comenzar desde cero. Proporcionamos guías de migración y herramientas para ayudarte a realizar la transición sin problemas."
+      },
+      "q9": {
+        "question": "¿Ofrecen capacitación o talleres?",
+        "answer": "Sí, ofrecemos programas de capacitación integrales que incluyen talleres en vivo, cursos grabados y mentoría personalizada. Los clientes Enterprise obtienen sesiones de capacitación personalizadas adaptadas a las necesidades de su equipo."
+      },
+      "q10": {
+        "question": "¿Cuál es su política de reembolso?",
+        "answer": "Ofrecemos una garantía de devolución de dinero de 30 días para todos los planes pagos. Si no estás completamente satisfecho con LeoStack, reembolsaremos tu pago, sin hacer preguntas."
+      }
+    },
+    "supportSection": {
+      "title": "¿Necesitas Más Ayuda?",
+      "subtitle": "Nuestro equipo de soporte está aquí para ayudarte a tener éxito con LeoStack",
+      "options": {
+        "community": {
+          "title": "Soporte Comunitario",
+          "description": "Obtén ayuda de nuestra activa comunidad de desarrolladores",
+          "action": "Únete a Discord"
+        },
+        "docs": {
+          "title": "Documentación",
+          "description": "Guías completas y referencias de API",
+          "action": "Ver Documentación"
+        },
+        "enterprise": {
+          "title": "Soporte Enterprise",
+          "description": "Soporte dedicado para grandes organizaciones",
+          "action": "Contactar Ventas"
+        },
+        "help": {
+          "title": "Centro de Ayuda",
+          "description": "Recursos de autoservicio y resolución de problemas",
+          "action": "Explorar Ayuda"
+        }
+      }
+    },
+    "contactCta": {
+      "title": "¿Aún tienes preguntas?",
+      "description": "Nuestro amable equipo de soporte está listo para ayudarte con cualquier pregunta sobre LeoStack, desde problemas técnicos hasta mejores prácticas.",
+      "contactButton": "Contactar Soporte",
+      "scheduleButton": "Programar una Llamada"
+    }
+  },
+    "Auth": {
+     "common": {
+       "or": "O",
+       "email": "Correo electrónico",
+       "emailPlaceholder": "Ingresa tu correo electrónico",
+       "password": "Contraseña",
+       "passwordPlaceholder": "Ingresa tu contraseña",
+       "confirmPassword": "Confirmar Contraseña",
+       "confirmPasswordPlaceholder": "Confirma tu contraseña",
+       "name": "Nombre Completo",
+       "namePlaceholder": "Ingresa tu nombre completo",
+       "profilePicture": "Foto de Perfil"
+     },
+    "login": {
+      "title": "Bienvenido de Vuelta",
+      "description": "Inicia sesión en tu cuenta para continuar",
+      "google": "Continuar con Google",
+      "submit": "Iniciar Sesión",
+      "noAccount": "¿No tienes una cuenta?",
+      "signUp": "Regístrate"
+    },
+    "signup": {
+      "title": "Crear Cuenta",
+      "description": "Únete hoy y comienza a crear aplicaciones increíbles",
+      "google": "Continuar con Google",
+      "submit": "Crear Cuenta",
+      "hasAccount": "¿Ya tienes una cuenta?",
+      "signIn": "Iniciar sesión"
+    }
+  },
+  "Dashboard": {
+    "title": "Panel de Control",
+    "loading": "Cargando...",
+    "signOut": "Cerrar Sesión",
+    "welcome": {
+      "title": "¡Bienvenido de vuelta!",
+      "description": "Hola {name}, bienvenido a tu panel de control."
+    },
+    "profile": {
+      "title": "Perfil",
+      "name": "Nombre",
+      "email": "Correo electrónico",
+      "edit": "Editar Perfil"
+    },
+    "actions": {
+      "title": "Acciones Rápidas",
+      "createProject": "Crear Nuevo Proyecto",
+      "viewProjects": "Ver Proyectos",
+      "settings": "Configuración"
+    },
+    "stats": {
+      "title": "Estadísticas",
+      "projects": "Proyectos",
+      "storage": "Almacenamiento Usado",
+      "members": "Miembros del Equipo"
+    }
+  },
+  "Profile": {
+    "title": "Editar Perfil",
+    "loading": "Cargando...",
+    "description": "Actualiza tu información de perfil",
+    "name": "Nombre",
+    "email": "Correo electrónico",
+    "updateButton": "Actualizar Nombre",
+    "updating": "Actualizando...",
+    "back": "Atrás",
+    "errors": {
+      "nameEmpty": "El nombre no puede estar vacío",
+      "updateFailed": "Error al actualizar el nombre",
+      "loadFailed": "Error al cargar el perfil"
+    },
+    "success": "Nombre actualizado exitosamente"
+  },
+  "Footer": {
+    "newsletter": {
+      "title": "Mantente Actualizado",
+      "description": "Recibe las últimas actualizaciones sobre nuevas características, tutoriales y noticias de la comunidad.",
+      "placeholder": "Ingresa tu correo electrónico",
+      "button": "Suscribirse",
+      "privacy": "Respetamos tu privacidad. Cancela la suscripción en cualquier momento."
+    },
+    "company": {
+      "name": "LeoStack",
+      "description": "La solución full-stack completa para aplicaciones web modernas. Construido con Next.js, TypeScript y las mejores prácticas en mente. Creado por Harshax leocodeio, un Desarrollador Full Stack especializado en aplicaciones web y proyectos de IA.",
+      "contact": {
+        "email": "hello@leocode.tech",
+        "phone": "+1 (555) 123-4567",
+        "location": "San Francisco, CA"
+      }
+    },
+    "links": {
+      "product": {
+        "title": "Producto",
+        "items": [
+          "Características",
+          "Precios",
+          "Documentación",
+          "Referencia de API",
+          "Registro de Cambios"
+        ]
+      },
+      "company": {
+        "title": "Empresa",
+        "items": [
+          "Acerca de",
+          "Blog",
+          "Carreras",
+          "Prensa",
+          "Socios"
+        ]
+      },
+      "support": {
+        "title": "Soporte",
+        "items": [
+          "Centro de Ayuda",
+          "Comunidad",
+          "Contáctanos",
+          "Estado",
+          "Estado del Sistema"
+        ]
+      },
+      "legal": {
+        "title": "Legal",
+        "items": [
+          "Política de Privacidad",
+          "Términos de Servicio",
+          "Política de Cookies",
+          "GDPR",
+          "Seguridad"
+        ]
+      }
+    },
+    "bottom": {
+      "copyright": "© 2025 LeoStack por Harshax leocodeio. Todos los derechos reservados.",
+      "madeWith": "Hecho con ❤️ por Harshax"
+    },
+    "social": {
+      "github": "GitHub",
+      "twitter": "Twitter",
+      "linkedin": "LinkedIn"
+    }
+  }
+}
