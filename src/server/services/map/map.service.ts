@@ -127,6 +127,44 @@ export class MapService {
       data: { accountId, editorId, status },
     });
   }
+
+  // Link editor to account
+  async linkEditorToAccount(creatorId: string, accountId: string, editorId: string) {
+    const creatorEditorMap = await prisma.creatorEditorMap.findFirst({
+      where: { creatorId, editorId, status: "ACTIVE" },
+    });
+
+    if (!creatorEditorMap) throw new Error("No active relationship between creator and editor");
+
+    const existingMap = await prisma.accountEditorMap.findFirst({
+      where: { accountId, editorId },
+    });
+
+    if (existingMap) {
+      return prisma.accountEditorMap.update({
+        where: { id: existingMap.id },
+        data: { status: "ACTIVE" },
+      });
+    }
+
+    return prisma.accountEditorMap.create({
+      data: { accountId, editorId, status: "ACTIVE" },
+    });
+  }
+
+  // Unlink editor from account
+  async unlinkEditorFromAccount(creatorId: string, accountId: string, editorId: string) {
+    const existingMap = await prisma.accountEditorMap.findFirst({
+      where: { accountId, editorId },
+    });
+
+    if (!existingMap) throw new Error("Account-editor mapping not found");
+
+    return prisma.accountEditorMap.update({
+      where: { id: existingMap.id },
+      data: { status: "INACTIVE" },
+    });
+  }
 }
 
 export const mapService = new MapService();

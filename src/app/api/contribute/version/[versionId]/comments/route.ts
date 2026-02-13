@@ -10,13 +10,11 @@ export async function GET(
   if (!session) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
   const { versionId } = await params;
-  const version = await contributeService.getVersionById(versionId);
-  if (!version) return NextResponse.json({ error: "Not found" }, { status: 404 });
-
-  return NextResponse.json(version);
+  const comments = await contributeService.getVersionComments(versionId);
+  return NextResponse.json(comments);
 }
 
-export async function PATCH(
+export async function POST(
   req: NextRequest,
   { params }: { params: Promise<{ versionId: string }> }
 ) {
@@ -25,9 +23,13 @@ export async function PATCH(
 
   const { versionId } = await params;
   try {
-    const { status } = await req.json();
-    const version = await contributeService.updateVersionStatus(versionId, status);
-    return NextResponse.json(version);
+    const { content } = await req.json();
+    const comment = await contributeService.createVersionComment(
+      versionId,
+      session.user.id,
+      content
+    );
+    return NextResponse.json(comment);
   } catch (error: any) {
     return NextResponse.json({ error: error.message }, { status: 400 });
   }

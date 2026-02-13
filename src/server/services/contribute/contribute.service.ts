@@ -138,6 +138,19 @@ export class ContributeService {
       orderBy: { createdAt: "asc" },
     });
   }
+
+  async getVersionById(versionId: string) {
+    return prisma.contributionVersion.findUnique({
+      where: { id: versionId },
+      include: {
+        video: true,
+        thumbnail: true,
+        comments: {
+          include: { author: true },
+        },
+      },
+    });
+  }
 }
 
 export const contributeService = new ContributeService();

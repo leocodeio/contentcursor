@@ -4,12 +4,13 @@ import { contributeService } from "@/server/services/contribute/contribute.servi
 
 export async function GET(
   req: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   const session = await auth.api.getSession({ headers: req.headers });
   if (!session) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
-  const contribution = await contributeService.getContributionById(params.id);
+  const { id } = await params;
+  const contribution = await contributeService.getContributionById(id);
   if (!contribution) return NextResponse.json({ error: "Not found" }, { status: 404 });
 
   return NextResponse.json(contribution);
@@ -17,11 +18,12 @@ export async function GET(
 
 export async function POST(
   req: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   const session = await auth.api.getSession({ headers: req.headers });
   if (!session) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
+  const { id } = await params;
   try {
     const formData = await req.formData();
     const videoFile = formData.get("video") as File;
@@ -46,7 +48,7 @@ export async function POST(
     };
 
     const version = await contributeService.createVersion(
-      params.id,
+      id,
       files,
       { title, description, tags }
     );

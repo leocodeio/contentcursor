@@ -1,6 +1,6 @@
 import { prisma } from "@/lib/prisma";
 import { google, Auth, youtube_v3 } from 'googleapis';
-import { driveService } from "../../media/drive.service";
+import { driveService } from "../media/drive.service";
 
 export class YtIntService {
   private oauth2Client: Auth.OAuth2Client;
@@ -146,6 +146,32 @@ export class YtIntService {
     });
 
     return true;
+  }
+
+  // Creator management
+  async getCreatorEntries(creatorId?: string, status?: string) {
+    const where: any = {};
+    if (creatorId) where.creatorId = creatorId;
+    if (status) where.status = status;
+
+    return prisma.ytCreator.findMany({
+      where,
+      select: {
+        id: true,
+        creatorId: true,
+        email: true,
+        status: true,
+        createdAt: true,
+        updatedAt: true,
+      },
+    });
+  }
+
+  async updateCreatorEntry(id: string, data: { status?: string; email?: string }) {
+    return prisma.ytCreator.update({
+      where: { id },
+      data,
+    });
   }
 }
 

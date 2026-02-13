@@ -26,6 +26,20 @@ model User {
 
   accounts        Account[]
   sessions        Session[]
+
+  // Relations for Creator-Editor map
+  creatorMaps     CreatorEditorMap[] @relation("CreatorRelation")
+  editorMaps      CreatorEditorMap[] @relation("EditorRelation")
+
+  // Relations for contributions
+  editorContributions Contribute[] @relation("EditorRelation")
+  authorComments    VersionComment[] @relation("AuthorRelation")
+
+  // Relation for YouTube creator
+  ytCreator        YtCreator?
+
+  // Relation for account editor maps
+  editorAccountMaps AccountEditorMap[] @relation("EditorAccountRelation")
 }
 
 model Account {
@@ -74,4 +88,165 @@ model Verification {
 
   @@index([identifier])
   @@map("verification")
+}
+
+// Media model for Drive uploads
+model Media {
+  id              String    @id @default(auto()) @map("_id") @db.ObjectId
+  type            String    // VIDEO, IMAGE, etc.
+  integrationUrl  String?
+  integrationKey  String?   // Drive file ID
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+
+  videoContributions  Contribute[] @relation("VideoRelation")
+  thumbnailContributions  Contribute[] @relation("ThumbnailRelation")
+  contributionVersions     ContributionVersion[] @relation("VersionVideoRelation")
+  contributionVersionThumbnails ContributionVersion[] @relation("VersionThumbnailRelation")
+  folderItems      FolderItem[]
+
+  @@map("media")
+}
+
+// Folder model
+model Folder {
+  id          String    @id @default(auto()) @map("_id") @db.ObjectId
+  folderId    String    // Drive folder ID
+  name        String
+  creatorId   String    @db.ObjectId
+  editorId    String    @db.ObjectId
+  accountId   String
+  deletedAt   DateTime?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  items       FolderItem[]
+
+  @@map("folder")
+}
+
+// Folder item for many-to-many relation between Folder and Media
+model FolderItem {
+  id        String    @id @default(auto()) @map("_id") @db.ObjectId
+  folderId  String    @db.ObjectId
+  mediaId   String    @db.ObjectId
+  deletedAt DateTime?
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+
+  folder    Folder    @relation(fields: [folderId], references: [id], onDelete: Cascade)
+  media     Media     @relation(fields: [mediaId], references: [id], onDelete: Cascade)
+
+  @@unique([folderId, mediaId])
+  @@map("folder_item")
+}
+
+// Contribution model
+model Contribute {
+  id            String    @id @default(auto()) @map("_id") @db.ObjectId
+  accountId     String    @db.ObjectId
+  editorId      String    @db.ObjectId
+  videoId       String    @db.ObjectId
+  thumbnailId   String    @db.ObjectId
+  title         String
+  description   String?
+  tags          String[]
+  duration      Int?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  account       YtCreator @relation(fields: [accountId], references: [id])
+  editor        User      @relation("EditorRelation", fields: [editorId], references: [id])
+  video         Media     @relation("VideoRelation", fields: [videoId], references: [id])
+  thumbnail     Media     @relation("ThumbnailRelation", fields: [thumbnailId], references: [id])
+  versions      ContributionVersion[]
+
+  @@map("contribute")
+}
+
+// Contribution version model
+model ContributionVersion {
+  id            String    @id @default(auto()) @map("_id") @db.ObjectId
+  contributeId  String    @db.ObjectId
+  videoId       String    @db.ObjectId
+  thumbnailId   String    @db.ObjectId
+  title         String
+  description   String?
+  tags          String[]
+  duration      Int?
+  status        String    @default("PENDING") // PENDING, PROCESSING, COMPLETED, FAILED
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  contribute    Contribute @relation(fields: [contributeId], references: [id], onDelete: Cascade)
+  video         Media      @relation("VersionVideoRelation", fields: [videoId], references: [id])
+  thumbnail     Media      @relation("VersionThumbnailRelation", fields: [thumbnailId], references: [id])
+  comments      VersionComment[]
+
+  @@map("contribution_version")
+}
+
+// Version comment model
+model VersionComment {
+  id        String    @id @default(auto()) @map("_id") @db.ObjectId
+  versionId String    @db.ObjectId
+  authorId  String    @db.ObjectId
+  content   String
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+
+  version   ContributionVersion @relation(fields: [versionId], references: [id], onDelete: Cascade)
+  author    User      @relation("AuthorRelation", fields: [authorId], references: [id])
+
+  @@map("version_comment")
+}
+
+// Creator-Editor Map
+model CreatorEditorMap {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  creatorId String   @db.ObjectId
+  editorId  String   @db.ObjectId
+  status   String   @default("PENDING") // PENDING, ACTIVE, INACTIVE
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  creator   User     @relation("CreatorRelation", fields: [creatorId], references: [id], onDelete: Cascade)
+  editor    User     @relation("EditorRelation", fields: [editorId], references: [id], onDelete: Cascade)
+
+  @@unique([creatorId, editorId])
+  @@map("creator_editor_map")
+}
+
+// Account-Editor Map
+model AccountEditorMap {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  accountId String   @db.ObjectId
+  editorId  String   @db.ObjectId
+  status   String   @default("ACTIVE") // ACTIVE, INACTIVE
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  account  YtCreator @relation(fields: [accountId], references: [id], onDelete: Cascade)
+  editor   User     @relation("EditorAccountRelation", fields: [editorId], references: [id], onDelete: Cascade)
+
+  @@unique([accountId, editorId])
+  @@map("account_editor_map")
+}
+
+// YouTube Creator model
+model YtCreator {
+  id           String   @id @default(auto()) @map("_id") @db.ObjectId
+  creatorId    String   @db.ObjectId @unique
+  email        String
+  accessToken  String
+  refreshToken String
+  status       String   @default("ACTIVE")
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  creator      User     @relation(fields: [creatorId], references: [id], onDelete: Cascade)
+  accounts     AccountEditorMap[]
+  contributions Contribute[]
+
+  @@map("yt_creator")
 }
