@@ -1,0 +1,34 @@
+# Base node image for all stages
+FROM node:lts AS builder
+
+# Install openssl for Prisma's usage during runtime
+RUN apt-get update && apt-get install -y openssl curl \
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
+
+# Install pnpm globally
+RUN npm install -g pnpm@9.0.0
+
+# Set the working directory
+WORKDIR /usr/src/app
+
+# Copy entire source code
+COPY . .
+
+# Install all dependencies
+RUN pnpm install
+
+# Build the web app with its dependencies
+RUN pnpm turbo run build --filter=@spectral/web
+
+# Create .turbo directory and set permissions
+RUN mkdir -p .turbo/cache && \
+    chown -R node:node /usr/src/app
+
+# Use non-root user for security
+USER node
+
+# Expose the port
+EXPOSE 3000
+
+# Start the application
+CMD ["pnpm", "start", "--filter=@spectral/web"]

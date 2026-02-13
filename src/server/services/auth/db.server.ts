@@ -1,6 +1,6 @@
 import { betterAuth } from "better-auth";
 import { prismaAdapter } from "better-auth/adapters/prisma";
-import { PrismaClient } from "@/generated/prisma";
+import { PrismaClient } from "@prisma/client";
 import { NextRequest } from "next/server";
 
 // import {
@@ -13,37 +13,22 @@ import { NextRequest } from "next/server";
  * prisma
  * Singleton pattern for Next.js to prevent multiple instances in development
  */
-const globalForPrisma = globalThis as unknown as {
-  prisma: PrismaClient | undefined;
+
+const prismaClientSingleton = () => {
+  return new PrismaClient();
 };
 
-export const prisma =
-  globalForPrisma.prisma ??
-  new PrismaClient({
-    log: process.env.NODE_ENV === "development" ? ["query", "error", "warn"] : ["error"],
-  });
+type PrismaClientSingleton = ReturnType<typeof prismaClientSingleton>;
+
+const globalForPrisma = globalThis as unknown as {
+  prisma: PrismaClientSingleton | undefined;
+};
+
+const prisma = globalForPrisma.prisma ?? prismaClientSingleton();
+
+export default prisma;
 
 if (process.env.NODE_ENV !== "production") globalForPrisma.prisma = prisma;
-
-/*
- * polar
- */
-// import {
-//   polar,
-//   checkout,
-//   portal,
-//   usage,
-//   webhooks,
-// } from "@polar-sh/better-auth";
-// import { Polar } from "@polar-sh/sdk";
-
-// const polarClient = new Polar({
-//   accessToken: process.env.POLAR_ACCESS_TOKEN,
-//   // Use 'sandbox' if you're using the Polar Sandbox environment
-//   // Remember that access tokens, products, etc. are completely separated between environments.
-//   // Access tokens obtained in Production are for instance not usable in the Sandbox environment.
-//   server: "sandbox",
-// });
 
 /*
  * better-auth

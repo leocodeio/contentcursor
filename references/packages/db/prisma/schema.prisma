@@ -1,0 +1,363 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model User {
+  id            String    @id
+  name          String
+  email         String
+  emailVerified Boolean
+  image         String?
+  createdAt     DateTime
+  updatedAt     DateTime
+  sessions      Session[]
+  accounts      Account[]
+
+  subscriptions Subscription[]
+  payments      Payment[]
+
+  role             String?
+  phone            String?
+  phoneVerified    Boolean?
+  profileCompleted Boolean?
+  subscriptionId   String?
+
+  // Add relations for AccountEditorMap (editor only)
+  accountEditorMapsAsEditor AccountEditorMap[] @relation("AccountEditorEditor")
+
+  // Add relations for CreatorEditorMap
+  creatorEditorMapsAsCreator CreatorEditorMap[] @relation("CreatorEditorCreator")
+  creatorEditorMapsAsEditor  CreatorEditorMap[] @relation("CreatorEditorEditor")
+
+  // Add relations for Folders
+  foldersAsCreator Folder[] @relation("CreatorFolder")
+  foldersAsEditor  Folder[] @relation("EditorFolder")
+
+  // Add relations for Contribute
+  contributesAsEditor Contribute[] @relation("ContributeEditor")
+
+  // Add relations for VersionComment
+  versionComments VersionComment[] @relation("VersionCommentAuthor")
+
+  @@unique([email])
+  @@map("user")
+}
+
+model Session {
+  id        String   @id
+  expiresAt DateTime
+  token     String
+  createdAt DateTime
+  updatedAt DateTime
+  ipAddress String?
+  userAgent String?
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([token])
+  @@map("session")
+}
+
+model Account {
+  id                    String    @id
+  accountId             String
+  providerId            String
+  userId                String
+  user                  User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  accessToken           String?
+  refreshToken          String?
+  idToken               String?
+  accessTokenExpiresAt  DateTime?
+  refreshTokenExpiresAt DateTime?
+  scope                 String?
+  password              String?
+  createdAt             DateTime
+  updatedAt             DateTime
+
+  @@map("account")
+}
+
+model Verification {
+  id         String    @id
+  identifier String
+  value      String
+  expiresAt  DateTime
+  createdAt  DateTime?
+  updatedAt  DateTime?
+
+  @@map("verification")
+}
+
+model Subscription {
+  id                  String    @id @default(cuid())
+  userId              String
+  user                User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  planId              String?
+  planSlug            String?
+  status              String?
+  startDate           DateTime? @default(now())
+  endDate             DateTime?
+  canceledAt          DateTime?
+  polarCheckoutId     String?
+  polarSubscriptionId String?
+  createdAt           DateTime  @default(now())
+  updatedAt           DateTime  @updatedAt
+
+  @@map("subscription")
+  @@unique([polarCheckoutId])
+  @@unique([userId])
+}
+
+model Payment {
+  id           String   @id @default(cuid())
+  userId       String
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  amount       Float
+  currency     String
+  status       String
+  polarOrderId String
+  checkoutId   String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  @@map("payment")
+}
+
+model Test {
+  id   String @id @default(cuid())
+  name String
+}
+
+model LogEntry {
+  id            String   @id @default(cuid())
+  timestamp     DateTime @default(now())
+  level         String?
+  message       String?
+  correlationId String?
+  metadata      String?
+  context       String?
+  type          String?
+  method        String?
+  url           String?
+  statusCode    Int?
+  duration      String?
+  error         String?
+}
+
+model YtCreator {
+  id           String          @id @default(cuid())
+  creatorId    String
+  email        String
+  accessToken  String          @unique
+  refreshToken String          @unique
+  status       YtCreatorStatus @default(ACTIVE)
+  createdAt    DateTime        @default(now())
+  updatedAt    DateTime        @updatedAt
+
+  accountFolders    Folder[]           @relation("AccountFolder")
+  accountEditorMaps AccountEditorMap[]
+  contributes       Contribute[]
+}
+
+enum YtCreatorStatus {
+  ACTIVE
+  INACTIVE
+  SUSPENDED
+  DELETED
+}
+
+// schema for media
+
+model Media {
+  id             String    @id @default(cuid())
+  type           MediaType
+  integrationUrl String?   @map("integration_url")
+  integrationKey String?   @map("integration_key")
+  createdAt      DateTime  @default(now()) @map("created_at")
+  updatedAt      DateTime  @default(now()) @updatedAt @map("updated_at")
+
+  // relations to FolderItems
+  folderItems FolderItem[] @relation("FolderMedia")
+
+  // relations to Contribute
+  contributesAsVideo     Contribute[] @relation("ContributeVideo")
+  contributesAsThumbnail Contribute[] @relation("ContributeThumbnail")
+
+  // relations to ContributionVersion
+  versionsAsVideo     ContributionVersion[] @relation("VersionVideo")
+  versionsAsThumbnail ContributionVersion[] @relation("VersionThumbnail")
+
+  @@map("media")
+  @@unique([integrationUrl])
+  @@unique([integrationKey])
+}
+
+enum MediaType {
+  IMAGE
+  VIDEO
+}
+
+model AccountEditorMap {
+  id        String                 @id @default(cuid())
+  accountId String                 @map("account_id")
+  editorId  String                 @map("editor_id")
+  status    AccountEditorMapStatus @default(ACTIVE)
+  createdAt DateTime               @default(now()) @map("created_at")
+  updatedAt DateTime               @default(now()) @updatedAt @map("updated_at")
+
+  // relations 
+  account YtCreator @relation(fields: [accountId], references: [id], onDelete: Cascade)
+  editor  User      @relation("AccountEditorEditor", fields: [editorId], references: [id], onDelete: Cascade)
+
+  @@map("account_editor_map")
+}
+
+enum AccountEditorMapStatus {
+  ACTIVE
+  INACTIVE
+  PENDING
+  NO_MAP
+}
+
+model CreatorEditorMap {
+  id        String                 @id @default(cuid())
+  creatorId String                 @map("creator_id")
+  editorId  String                 @map("editor_id")
+  status    CreatorEditorMapStatus @default(ACTIVE)
+  createdAt DateTime               @default(now()) @map("created_at")
+  updatedAt DateTime               @default(now()) @updatedAt @map("updated_at")
+
+  //  relations to User table
+  creator User @relation("CreatorEditorCreator", fields: [creatorId], references: [id], onDelete: Cascade)
+  editor  User @relation("CreatorEditorEditor", fields: [editorId], references: [id], onDelete: Cascade)
+
+  @@map("creator_editor_map")
+  @@unique([creatorId, editorId])
+}
+
+enum CreatorEditorMapStatus {
+  ACTIVE
+  INACTIVE
+  PENDING
+  NO_MAP
+}
+
+model Folder {
+  id        String    @id @default(cuid())
+  folderId  String    @unique
+  name      String
+  creatorId String
+  creator   User      @relation("CreatorFolder", fields: [creatorId], references: [id], onDelete: Cascade)
+  editorId  String
+  editor    User      @relation("EditorFolder", fields: [editorId], references: [id], onDelete: Cascade)
+  accountId String
+  account   YtCreator @relation("AccountFolder", fields: [accountId], references: [id], onDelete: Cascade)
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+
+  @@map("folder")
+  @@unique([accountId, creatorId, editorId, name, folderId])
+}
+
+model FolderItem {
+  id        String    @id @default(cuid())
+  folderId  String
+  mediaId   String
+  media     Media     @relation("FolderMedia", fields: [mediaId], references: [id], onDelete: Cascade)
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+
+  @@map("folder_item")
+  @@unique([folderId, mediaId])
+}
+
+model Contribute {
+  id          String           @id @default(cuid())
+  status      ContributeStatus @default(PENDING)
+  accountId   String           @map("account_id")
+  editorId    String           @map("editor_id")
+  videoId     String           @map("video_id")
+  thumbnailId String           @map("thumbnail_id")
+  title       String
+  description String
+  tags        String[]
+  duration    Int
+  createdAt   DateTime         @default(now()) @map("created_at")
+  updatedAt   DateTime         @default(now()) @updatedAt @map("updated_at")
+
+  // Relations
+  account   YtCreator @relation(fields: [accountId], references: [id], onDelete: Cascade)
+  editor    User      @relation("ContributeEditor", fields: [editorId], references: [id], onDelete: Cascade)
+  video     Media     @relation("ContributeVideo", fields: [videoId], references: [id], onDelete: Cascade)
+  thumbnail Media     @relation("ContributeThumbnail", fields: [thumbnailId], references: [id], onDelete: Cascade)
+
+  // Versioning relation
+  versions ContributionVersion[]
+
+  @@map("contribute")
+}
+
+enum ContributeStatus {
+  PENDING
+  COMPLETED
+  REJECTED
+}
+
+model ContributionVersion {
+  id            String                    @id @default(cuid())
+  contributeId  String                    @map("contribute_id")
+  versionNumber Int                       @map("version_number")
+  status        ContributionVersionStatus @default(PENDING)
+  title         String
+  description   String
+  tags          String[]
+  videoId       String                    @map("video_id")
+  thumbnailId   String                    @map("thumbnail_id")
+  duration      Int
+  createdAt     DateTime                  @default(now()) @map("created_at")
+  updatedAt     DateTime                  @default(now()) @updatedAt @map("updated_at")
+
+  // Relations
+  contribute Contribute       @relation(fields: [contributeId], references: [id], onDelete: Cascade)
+  video      Media            @relation("VersionVideo", fields: [videoId], references: [id], onDelete: Cascade)
+  thumbnail  Media            @relation("VersionThumbnail", fields: [thumbnailId], references: [id], onDelete: Cascade)
+  comments   VersionComment[]
+
+  @@map("contribution_version")
+  @@unique([contributeId, versionNumber])
+}
+
+enum ContributionVersionStatus {
+  PENDING
+  COMPLETED
+  REJECTED
+}
+
+model VersionComment {
+  id        String   @id @default(cuid())
+  versionId String   @map("version_id")
+  authorId  String   @map("author_id")
+  content   String
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @default(now()) @updatedAt @map("updated_at")
+
+  // Relations
+  version ContributionVersion @relation(fields: [versionId], references: [id], onDelete: Cascade)
+  author  User                @relation("VersionCommentAuthor", fields: [authorId], references: [id], onDelete: Cascade)
+
+  @@map("version_comment")
+}
