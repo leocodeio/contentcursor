@@ -4,12 +4,13 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "postinstall": "bun run prisma:generate && bun run prisma:push",
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "prisma:generate": "npx prisma generate",
-    "prisma:push": "npx prisma db push",
-    "prisma:studio": "npx prisma studio"
+    "prisma:generate": "bunx prisma generate",
+    "prisma:push": "bunx prisma db push",
+    "prisma:studio": "bunx prisma studio"
   },
   "dependencies": {
     "@prisma/client": "^6.16.1",

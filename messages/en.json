@@ -7,7 +7,7 @@
     "signIn": "Sign In",
     "getStarted": "Get Started"
   },
-   "Hero": {
+  "Hero": {
     "title": "Automate Your Creative Workflow",
     "subtitle": "The powerful Next.js boilerplate that connects YouTube metadata with Google Drive automation. Build faster, organize smarter.",
     "cta": "Start Automating",
@@ -59,7 +59,7 @@
       }
     }
   },
-   "Testimonials": {
+  "Testimonials": {
     "title": "What People Say",
     "subtitle": "Hear from creators building with ContentCursor",
     "badge": "Testimonials",
@@ -93,6 +93,27 @@
         "role": "Project Manager",
         "company": "MediaFlow",
         "content": "As a non-technical manager, the automated folder organization in Drive made it possible for us to scale our video team without the usual headache of manual file management.",
+        "rating": 5
+      },
+      {
+        "name": "David Wilson",
+        "role": "Video Producer",
+        "company": "PixelPerfect",
+        "content": "The way it handles YouTube metadata is brilliant. It has saved our editorial team dozens of hours every month. Highly recommended for any serious content house.",
+        "rating": 5
+      },
+      {
+        "name": "Jessica Lee",
+        "role": "Solo Creator",
+        "company": "JessCreate",
+        "content": "Finally, a tool that understands the creator's pain points. The Drive sync is reliable, and the Nex.js boilerplate gave me a huge head start on my personal dashboard.",
+        "rating": 5
+      },
+      {
+        "name": "Alex Thompson",
+        "role": "CTO",
+        "company": "StreamScale",
+        "content": "Modular, typed, and well-documented. It's the perfect foundation for building custom content automation tools. The support section is also top-notch.",
         "rating": 5
       }
     ]
@@ -179,6 +200,14 @@
       "freeTrial": {
         "question": "Is there a free trial?",
         "answer": "Yes! We offer a 14-day trial of the Pro features so you can test the full automation power."
+      },
+      "paymentMethods": {
+        "question": "What payment methods do you accept?",
+        "answer": "We accept all major credit cards, PayPal, and bank transfers for Enterprise plans."
+      },
+      "refunds": {
+        "question": "Do you offer refunds?",
+        "answer": "We offer a 30-day money-back guarantee if you're not satisfied with our service."
       }
     },
     "free": {
@@ -213,6 +242,38 @@
       "q2": {
         "question": "How does Drive automation work?",
         "answer": "Our Drive service automatically creates project folders, handles chunked file uploads, and organizes your media based on your YouTube metadata or custom project settings."
+      },
+      "q3": {
+        "question": "Can I connect multiple YouTube channels?",
+        "answer": "Yes! Pro and Enterprise plans allow you to connect multiple YouTube accounts and manage them from a single dashboard."
+      },
+      "q4": {
+        "question": "Is my data secure?",
+        "answer": "Absolutely. We use OAuth2 for all cloud connections and never store your raw video files on our servers."
+      },
+      "q5": {
+        "question": "What is the service-based architecture?",
+        "answer": "ContentCursor follows a clean service pattern, separating your business logic from the UI and database layers for better maintainability."
+      },
+      "q6": {
+        "question": "Does it support other cloud providers?",
+        "answer": "Initially, we support Google Drive. Support for Dropbox and AWS S3 is currently on our roadmap."
+      },
+      "q7": {
+        "question": "Can I customize the authentication flow?",
+        "answer": "Yes, we use Better Auth which is highly extensible and supports various providers and custom session logic."
+      },
+      "q8": {
+        "question": "How do I handle large file uploads?",
+        "answer": "Our Drive service implements chunked uploads, allowing you to reliably transfer large video files without timing out."
+      },
+      "q9": {
+        "question": "Is the boilerplate SEO friendly?",
+        "answer": "Yes, it's built with Next.js 15 App Router, which provides excellent SEO out of the box with metadata API support."
+      },
+      "q10": {
+        "question": "Can I use it for commercial projects?",
+        "answer": "Yes, once you purchase a license, you are free to use ContentCursor for your own commercial SaaS applications."
       }
     },
     "supportSection": {
@@ -228,23 +289,39 @@
           "title": "Documentation",
           "description": "Read the service implementation guide",
           "action": "View Docs"
+        },
+        "enterprise": {
+          "title": "Enterprise Support",
+          "description": "Dedicated assistance for large teams",
+          "action": "Contact Sales"
+        },
+        "help": {
+          "title": "Help Center",
+          "description": "Search our extensive knowledge base",
+          "action": "Browse FAQ"
         }
       }
+    },
+    "contactCta": {
+      "title": "Still have questions?",
+      "description": "We're here to help you find the best way to automate your creative workflow.",
+      "contactButton": "Contact Support",
+      "scheduleButton": "Schedule a Demo"
     }
   },
   "Auth": {
-     "common": {
-       "or": "Or",
-       "email": "Email",
-       "emailPlaceholder": "Enter your email",
-       "password": "Password",
-       "passwordPlaceholder": "Enter your password",
-       "confirmPassword": "Confirm Password",
-       "confirmPasswordPlaceholder": "Confirm your password",
-       "name": "Full Name",
-       "namePlaceholder": "Enter your full name",
-       "profilePicture": "Profile Picture"
-     },
+    "common": {
+      "or": "Or",
+      "email": "Email",
+      "emailPlaceholder": "Enter your email",
+      "password": "Password",
+      "passwordPlaceholder": "Enter your password",
+      "confirmPassword": "Confirm Password",
+      "confirmPasswordPlaceholder": "Confirm your password",
+      "name": "Full Name",
+      "namePlaceholder": "Enter your full name",
+      "profilePicture": "Profile Picture"
+    },
     "login": {
       "title": "Welcome Back",
       "description": "Sign in to manage your automations",
@@ -287,6 +364,53 @@
         "phone": "+1 (555) 123-4567",
         "location": "Global"
       }
+    },
+    "links": {
+      "product": {
+        "title": "Product",
+        "items": [
+          "Features",
+          "Pricing",
+          "Drive Sync",
+          "YT Integration",
+          "Metadata"
+        ]
+      },
+      "company": {
+        "title": "Company",
+        "items": [
+          "About Us",
+          "Careers",
+          "Blog",
+          "Press",
+          "Partners"
+        ]
+      },
+      "support": {
+        "title": "Support",
+        "items": [
+          "Help Center",
+          "Community",
+          "Documentation",
+          "API Reference",
+          "Status"
+        ]
+      },
+      "legal": {
+        "title": "Legal",
+        "items": [
+          "Privacy Policy",
+          "Terms of Service",
+          "Cookie Policy",
+          "License",
+          "Security"
+        ]
+      }
+    },
+    "social": {
+      "github": "Follow us on GitHub",
+      "twitter": "Follow us on Twitter",
+      "linkedin": "Connect on LinkedIn"
     },
     "bottom": {
       "copyright": "© 2026 ContentCursor by leocodeio. All rights reserved.",
