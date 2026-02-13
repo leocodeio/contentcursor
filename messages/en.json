@@ -8,123 +8,102 @@
     "getStarted": "Get Started"
   },
    "Hero": {
-    "title": "Build Your SaaS Faster",
-    "subtitle": "The complete Next.js boilerplate with authentication, payments, and everything you need to launch your SaaS.",
-    "cta": "Get Started",
-    "learnMore": "Learn More",
-    "badge": "Trusted by 10,000+ developers worldwide"
+    "title": "Automate Your Creative Workflow",
+    "subtitle": "The powerful Next.js boilerplate that connects YouTube metadata with Google Drive automation. Build faster, organize smarter.",
+    "cta": "Start Automating",
+    "learnMore": "View Features",
+    "badge": "Built for the next generation of content creators"
   },
   "Features": {
-    "title": "Everything You Need",
-    "subtitle": "All the features you need to build and scale your SaaS",
+    "title": "Everything You Need to Scale",
+    "subtitle": "Streamline your content management with deep cloud integrations",
     "badge": "Features",
     "auth": {
-      "title": "Authentication",
-      "description": "Secure authentication with Better Auth",
-      "badge": "Performance"
+      "title": "Google Drive Sync",
+      "description": "Automated folder creation and multipart cloud uploads",
+      "badge": "Automation"
     },
     "payments": {
-      "title": "Payments",
-      "description": "Integrated payment processing with Stripe",
-      "badge": "Security"
+      "title": "YouTube Integration",
+      "description": "Fetch and manage video metadata seamlessly",
+      "badge": "Creative"
     },
     "database": {
-      "title": "Database",
-      "description": "Prisma ORM with PostgreSQL",
-      "badge": "Database"
+      "title": "Modern Stack",
+      "description": "Next.js 15, Prisma (MongoDB), and Bun support",
+      "badge": "Performance"
     },
     "ui": {
-      "title": "Modern UI",
-      "description": "Beautiful components with shadcn/ui",
-      "badge": "Responsive"
+      "title": "Modular API",
+      "description": "Clean service-based architecture for custom logic",
+      "badge": "Architecture"
     },
     "typescript": {
-      "title": "TypeScript",
-      "description": "Fully typed for better DX",
-      "badge": "Developer Experience"
+      "title": "Secure Auth",
+      "description": "Ready-to-use authentication with Better Auth",
+      "badge": "Security"
     },
     "darkMode": {
-      "title": "Dark Mode",
-      "description": "Built-in dark mode support",
-      "badge": "Scalability"
+      "title": "Global Ready",
+      "description": "Built-in i18n support for international reach",
+      "badge": "Localization"
     },
     "aiPowered": {
-      "badge": "🚀 New Feature",
-      "title": "AI-Powered Development",
-      "description": "Leverage the power of AI to accelerate your development process. Get intelligent code suggestions, automated testing, and smart refactoring tools built right into your workflow.",
+      "badge": "🚀 Coming Soon",
+      "title": "AI Content Insights",
+      "description": "Leverage AI to analyze your video data and optimize your Drive storage strategy automatically.",
       "features": {
-        "codeGeneration": "Code Generation",
-        "smartRefactoring": "Smart Refactoring",
-        "automatedTesting": "Automated Testing"
+        "codeGeneration": "Smart Tagging",
+        "smartRefactoring": "Auto-Organization",
+        "automatedTesting": "Data Insights"
       }
     }
   },
    "Testimonials": {
     "title": "What People Say",
-    "subtitle": "Hear from developers who built with our stack",
+    "subtitle": "Hear from creators building with ContentCursor",
     "badge": "Testimonials",
-    "heading": "Loved by developers",
+    "heading": "Loved by innovators",
     "headingHighlight": "worldwide",
-    "description": "See what developers and companies are saying about ContentCursor",
-    "trustIndicator": "Trusted by leading companies worldwide",
+    "description": "See how ContentCursor is changing the game for creators and developers",
+    "trustIndicator": "Trusted by builders across the globe",
     "stats": {
-      "activeDevelopers": "Active Developers",
-      "appsBuilt": "Apps Built",
-      "countries": "Countries",
+      "activeDevelopers": "Active Users",
+      "appsBuilt": "Files Synced",
+      "countries": "Videos Tracked",
       "uptime": "Uptime"
     },
     "items": [
       {
         "name": "Sarah Johnson",
-        "role": "CTO at TechCorp",
-        "company": "TechCorp",
-        "content": "ContentCursor transformed our development workflow. We went from concept to production in record time. The built-in authentication and database integration saved us weeks of development.",
+        "role": "Content Strategist",
+        "company": "TechStream",
+        "content": "ContentCursor transformed our production workflow. We went from manual Drive uploads to fully automated sync in record time. The YouTube integration is a life-saver.",
         "rating": 5
       },
       {
         "name": "Michael Chen",
-        "role": "Lead Developer",
-        "company": "StartupXYZ",
-        "content": "The TypeScript integration is flawless. We've reduced our bug rate by 60% since switching to ContentCursor. The documentation is excellent and the community support is outstanding.",
+        "role": "Full Stack Developer",
+        "company": "CreatorToolbox",
+        "content": "The architecture is incredibly clean. I was able to customize the service layer to fit our specific needs in just a few hours. The MongoDB/Prisma combo is lightning fast.",
         "rating": 5
       },
       {
         "name": "Emily Rodriguez",
-        "role": "Product Manager",
-        "company": "InnovateLabs",
-        "content": "As a non-technical founder, ContentCursor made it possible for me to launch our MVP without hiring a full dev team first. The templates and components are production-ready and the deployment is seamless.",
-        "rating": 5
-      },
-      {
-        "name": "David Kim",
-        "role": "Senior Developer",
-        "company": "DevStudio",
-        "content": "We've tried many boilerplates, but ContentCursor stands out with its modern architecture and attention to detail. The shadcn/ui integration and dark mode support are game-changers.",
-        "rating": 5
-      },
-      {
-        "name": "Lisa Thompson",
-        "role": "Engineering Manager",
-        "company": "ScaleUp Inc",
-        "content": "Our team productivity increased by 40% after adopting ContentCursor. The consistent code patterns and built-in best practices made onboarding new developers effortless.",
-        "rating": 5
-      },
-      {
-        "name": "Alex Rivera",
-        "role": "Full Stack Developer",
-        "company": "CodeCraft",
-        "content": "The AI-powered features are incredible. Code generation and smart refactoring have cut our development time in half. ContentCursor is the future of web development.",
+        "role": "Project Manager",
+        "company": "MediaFlow",
+        "content": "As a non-technical manager, the automated folder organization in Drive made it possible for us to scale our video team without the usual headache of manual file management.",
         "rating": 5
       }
     ]
   },
   "Pricing": {
     "title": "Simple Pricing",
-    "subtitle": "Choose the plan that works for you",
+    "subtitle": "Choose the plan that fits your scale",
     "badge": "Pricing",
     "heading": "Choose the perfect plan for",
-    "headingHighlight": "your needs",
-    "description": "Start free and scale as you grow. All plans include our core features.",
+    "headingHighlight": "your projects",
+    "description": "Start building for free and scale as your content grows.",
     "monthly": "Monthly",
     "yearly": "Yearly",
     "savePercent": "Save 20%",
@@ -135,97 +114,89 @@
     "limitations": "Limitations:",
     "faqTitle": "Frequently Asked Questions",
     "enterpriseCta": {
-      "title": "Need a Custom Solution?",
-      "description": "Contact our sales team for custom pricing and enterprise features tailored to your organization's needs.",
-      "button": "Contact Sales Team"
+      "title": "Custom Integration Needed?",
+      "description": "Contact our team for enterprise-grade automation and custom storage solutions tailored to your team.",
+      "button": "Contact Sales"
     },
     "plans": {
       "starter": {
         "name": "Starter",
-        "description": "Perfect for individual developers and small projects",
+        "description": "Perfect for individual creators and small projects",
         "cta": "Get Started Free",
         "features": {
-          "projects": "Up to 3 projects",
-          "auth": "Basic authentication",
+          "projects": "Up to 5 folders",
+          "auth": "Basic Drive sync",
           "support": "Community support",
-          "storage": "1GB database storage",
-          "analytics": "Basic analytics",
+          "storage": "Standard API limits",
+          "analytics": "Basic metadata",
           "email": "Email support"
         },
         "limitations": {
-          "api": "Limited API calls",
-          "domains": "No custom domains",
-          "templates": "Basic templates only"
+          "api": "Limited daily uploads",
+          "domains": "No custom branding",
+          "templates": "Basic services only"
         }
       },
       "pro": {
         "name": "Pro",
-        "description": "Ideal for growing teams and production applications",
-        "cta": "Start Pro Trial",
+        "description": "Ideal for professional creators and growing teams",
+        "cta": "Go Pro Now",
         "features": {
-          "projects": "Unlimited projects",
-          "auth": "Advanced authentication",
+          "projects": "Unlimited folders",
+          "auth": "Advanced Drive automation",
           "support": "Priority support",
-          "storage": "100GB database storage",
-          "analytics": "Advanced analytics",
-          "domains": "Custom domains",
-          "apiLimits": "API rate limits: 100k/month",
-          "collaboration": "Team collaboration",
-          "integrations": "Custom integrations"
+          "storage": "Higher API quotas",
+          "analytics": "Deep YT insights",
+          "domains": "Custom integrations",
+          "apiLimits": "Priority processing",
+          "collaboration": "Team access",
+          "integrations": "Full Service access"
         }
       },
       "enterprise": {
         "name": "Enterprise",
-        "description": "For large organizations with advanced requirements",
+        "description": "For large media organizations and agencies",
         "cta": "Contact Sales",
         "features": {
           "everything": "Everything in Pro",
-          "apiUnlimited": "Unlimited API calls",
-          "dedicatedSupport": "Dedicated support",
-          "unlimitedStorage": "Unlimited storage",
-          "advancedSecurity": "Advanced security",
+          "apiUnlimited": "Custom API quotas",
+          "dedicatedSupport": "Dedicated manager",
+          "unlimitedStorage": "White-label storage",
+          "advancedSecurity": "Custom permissions",
           "sla": "SLA guarantee",
-          "customDeployment": "Custom deployment",
-          "whiteLabel": "White-label options",
-          "advancedIntegrations": "Advanced integrations",
-          "phoneSupport": "24/7 phone support"
+          "customDeployment": "Cloud isolation",
+          "whiteLabel": "Branded dashboard",
+          "advancedIntegrations": "CRM integrations",
+          "phoneSupport": "24/7 support"
         }
       }
     },
     "faqs": {
       "changePlan": {
-        "question": "Can I change my plan at any time?",
-        "answer": "Yes, you can upgrade or downgrade your plan at any time. Changes take effect immediately, and we'll prorate any charges."
+        "question": "Can I upgrade anytime?",
+        "answer": "Yes, you can upgrade or downgrade your plan instantly. Your automation limits will adjust immediately."
       },
       "freeTrial": {
         "question": "Is there a free trial?",
-        "answer": "Yes! We offer a 14-day free trial for all paid plans. No credit card required to start."
-      },
-      "paymentMethods": {
-        "question": "What payment methods do you accept?",
-        "answer": "We accept all major credit cards, PayPal, and bank transfers for Enterprise customers."
-      },
-      "refunds": {
-        "question": "Do you offer refunds?",
-        "answer": "Yes, we offer a 30-day money-back guarantee. If you're not satisfied, we'll refund your payment."
+        "answer": "Yes! We offer a 14-day trial of the Pro features so you can test the full automation power."
       }
     },
     "free": {
       "name": "Free",
       "price": "$0",
-      "description": "Perfect for getting started",
+      "description": "Perfect for testing",
       "cta": "Get Started"
     },
     "pro": {
       "name": "Pro",
-      "price": "$19",
-      "description": "For serious projects",
-      "cta": "Get Started"
+      "price": "$29",
+      "description": "For professional teams",
+      "cta": "Start Trial"
     },
     "enterprise": {
       "name": "Enterprise",
       "price": "Custom",
-      "description": "For large teams",
+      "description": "For scale",
       "cta": "Contact Us"
     }
   },
@@ -233,83 +204,35 @@
     "badge": "FAQ",
     "title": "Frequently Asked",
     "titleHighlight": "Questions",
-    "subtitle": "Everything you need to know about ContentCursor. Can't find what you're looking for? Contact our support team.",
+    "subtitle": "Everything you need to know about ContentCursor automation.",
     "questions": {
       "q1": {
-        "question": "What is ContentCursor and how does it work?",
-        "answer": "ContentCursor is a comprehensive full-stack development platform built on Next.js, TypeScript, and modern web technologies. It provides everything you need to build production-ready web applications quickly and efficiently, including authentication, database integration, UI components, and deployment tools."
+        "question": "What is ContentCursor?",
+        "answer": "ContentCursor is a full-stack SaaS boilerplate designed for content automation. It links your creative assets (YouTube) with cloud storage (Google Drive) using a clean Next.js 15 architecture."
       },
       "q2": {
-        "question": "Do I need to be an expert developer to use ContentCursor?",
-        "answer": "While ContentCursor is designed for developers of all skill levels, having basic knowledge of JavaScript/TypeScript and React will help you get the most out of it. We provide extensive documentation, tutorials, and community support to help you learn and build effectively."
-      },
-      "q3": {
-        "question": "Can I use ContentCursor for commercial projects?",
-        "answer": "Absolutely! ContentCursor is perfect for commercial applications. Our Pro and Enterprise plans include all the features you need for production deployments, including custom domains, advanced security, and priority support."
-      },
-      "q4": {
-        "question": "How does the database integration work?",
-        "answer": "ContentCursor comes with built-in Prisma integration, supporting multiple database providers including PostgreSQL, MySQL, SQLite, and MongoDB. We handle migrations, schema management, and provide type-safe database queries out of the box."
-      },
-      "q5": {
-        "question": "Is ContentCursor secure for handling sensitive data?",
-        "answer": "Yes, security is a top priority. ContentCursor includes enterprise-grade security features like encrypted data storage, secure authentication flows, GDPR compliance, and regular security audits. All data is encrypted in transit and at rest."
-      },
-      "q6": {
-        "question": "Can I customize the UI components and styling?",
-        "answer": "Definitely! ContentCursor uses Tailwind CSS and shadcn/ui components that are fully customizable. You can modify colors, fonts, spacing, and component behavior to match your brand perfectly."
-      },
-      "q7": {
-        "question": "What kind of support do you provide?",
-        "answer": "We offer multiple support channels: community forums, detailed documentation, video tutorials, and priority email support for Pro users. Enterprise customers get dedicated support with phone and video calls."
-      },
-      "q8": {
-        "question": "Can I migrate my existing project to ContentCursor?",
-        "answer": "Yes! ContentCursor is designed to be flexible. You can gradually migrate existing projects or start fresh. We provide migration guides and tools to help you transition smoothly."
-      },
-      "q9": {
-        "question": "Do you offer training or workshops?",
-        "answer": "Yes, we offer comprehensive training programs including live workshops, recorded courses, and personalized mentoring. Enterprise customers get custom training sessions tailored to their team's needs."
-      },
-      "q10": {
-        "question": "What's your refund policy?",
-        "answer": "We offer a 30-day money-back guarantee for all paid plans. If you're not completely satisfied with ContentCursor, we'll refund your payment, no questions asked."
+        "question": "How does Drive automation work?",
+        "answer": "Our Drive service automatically creates project folders, handles chunked file uploads, and organizes your media based on your YouTube metadata or custom project settings."
       }
     },
     "supportSection": {
       "title": "Need More Help?",
-      "subtitle": "Our support team is here to help you succeed with ContentCursor",
+      "subtitle": "Our team is here to help you automate your workflow.",
       "options": {
         "community": {
-          "title": "Community Support",
-          "description": "Get help from our active community of developers",
-          "action": "Join Discord"
+          "title": "Community",
+          "description": "Join other builders on Discord",
+          "action": "Join Now"
         },
         "docs": {
           "title": "Documentation",
-          "description": "Comprehensive guides and API references",
+          "description": "Read the service implementation guide",
           "action": "View Docs"
-        },
-        "enterprise": {
-          "title": "Enterprise Support",
-          "description": "Dedicated support for large organizations",
-          "action": "Contact Sales"
-        },
-        "help": {
-          "title": "Help Center",
-          "description": "Self-service resources and troubleshooting",
-          "action": "Browse Help"
         }
       }
-    },
-    "contactCta": {
-      "title": "Still have questions?",
-      "description": "Our friendly support team is ready to help you with any questions about ContentCursor, from technical issues to best practices.",
-      "contactButton": "Contact Support",
-      "scheduleButton": "Schedule a Call"
     }
   },
-    "Auth": {
+  "Auth": {
      "common": {
        "or": "Or",
        "email": "Email",
@@ -324,15 +247,15 @@
      },
     "login": {
       "title": "Welcome Back",
-      "description": "Sign in to your account to continue",
+      "description": "Sign in to manage your automations",
       "google": "Continue with Google",
       "submit": "Sign In",
-      "noAccount": "Don't have an account?",
+      "noAccount": "New here?",
       "signUp": "Sign up"
     },
     "signup": {
-      "title": "Create Account",
-      "description": "Join us today and start building amazing apps",
+      "title": "Get Started",
+      "description": "Join ContentCursor and start automating today",
       "google": "Continue with Google",
       "submit": "Create Account",
       "hasAccount": "Already have an account?",
@@ -340,115 +263,34 @@
     }
   },
   "Dashboard": {
-    "title": "Dashboard",
-    "loading": "Loading...",
+    "title": "Automation Hub",
+    "loading": "Syncing data...",
     "signOut": "Sign Out",
     "welcome": {
       "title": "Welcome back!",
-      "description": "Hello {name}, welcome to your dashboard."
-    },
-    "profile": {
-      "title": "Profile",
-      "name": "Name",
-      "email": "Email",
-      "edit": "Edit Profile"
-    },
-    "actions": {
-      "title": "Quick Actions",
-      "createProject": "Create New Project",
-      "viewProjects": "View Projects",
-      "settings": "Settings"
-    },
-    "stats": {
-      "title": "Statistics",
-      "projects": "Projects",
-      "storage": "Storage Used",
-      "members": "Team Members"
+      "description": "Hello {name}, your workspace is ready."
     }
-  },
-  "Profile": {
-    "title": "Edit Profile",
-    "loading": "Loading...",
-    "description": "Update your profile information",
-    "name": "Name",
-    "email": "Email",
-    "updateButton": "Update Name",
-    "updating": "Updating...",
-    "back": "Back",
-    "errors": {
-      "nameEmpty": "Name cannot be empty",
-      "updateFailed": "Failed to update name",
-      "loadFailed": "Failed to load profile"
-    },
-    "success": "Name updated successfully"
   },
   "Footer": {
     "newsletter": {
       "title": "Stay Updated",
-      "description": "Get the latest updates on new features, tutorials, and community news.",
+      "description": "Get the latest on automation features and creative tools.",
       "placeholder": "Enter your email",
       "button": "Subscribe",
-      "privacy": "We respect your privacy. Unsubscribe at any time."
+      "privacy": "Unsubscribe at any time."
     },
     "company": {
       "name": "ContentCursor",
-      "description": "The complete full-stack solution for modern web applications. Built with Next.js, TypeScript, and the best practices in mind. Created by Harshax leocodeio, a Full Stack Developer specializing in web applications and AI projects.",
+      "description": "The ultimate full-stack solution for content automation. Built with Next.js 15 and deep cloud integrations by leocodeio.",
       "contact": {
         "email": "hello@leocode.tech",
         "phone": "+1 (555) 123-4567",
-        "location": "San Francisco, CA"
-      }
-    },
-    "links": {
-      "product": {
-        "title": "Product",
-        "items": [
-          "Features",
-          "Pricing",
-          "Documentation",
-          "API Reference",
-          "Changelog"
-        ]
-      },
-      "company": {
-        "title": "Company",
-        "items": [
-          "About",
-          "Blog",
-          "Careers",
-          "Press",
-          "Partners"
-        ]
-      },
-      "support": {
-        "title": "Support",
-        "items": [
-          "Help Center",
-          "Community",
-          "Contact Us",
-          "Status",
-          "System Status"
-        ]
-      },
-      "legal": {
-        "title": "Legal",
-        "items": [
-          "Privacy Policy",
-          "Terms of Service",
-          "Cookie Policy",
-          "GDPR",
-          "Security"
-        ]
+        "location": "Global"
       }
     },
     "bottom": {
-      "copyright": "© 2025 ContentCursor by Harshax leocodeio. All rights reserved.",
-      "madeWith": "Made with ❤️ by Harshax"
-    },
-    "social": {
-      "github": "GitHub",
-      "twitter": "Twitter",
-      "linkedin": "LinkedIn"
+      "copyright": "© 2026 ContentCursor by leocodeio. All rights reserved.",
+      "madeWith": "Made with ❤️ by leocodeio"
     }
   }
 }
