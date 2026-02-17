@@ -6,8 +6,6 @@ import { Link } from "@/i18n/navigation";
 import { ArrowRight, Users, Link as LinkIcon, LayoutDashboard } from "lucide-react";
 
 import { getSession } from "@/server/services/auth/auth-client";
-import { Sidebar } from "@/components/sidebar";
-import { Header } from "@/components/header";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -57,7 +55,6 @@ interface DashboardData {
 }
 
 export default function DashboardPage() {
-  const router = useRouter();
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState<DashboardData | null>(null);
 
@@ -67,7 +64,6 @@ export default function DashboardPage() {
         const session = await getSession();
         
         if (!session?.data?.user) {
-          router.push("/auth/login");
           return;
         }
 
@@ -122,11 +118,11 @@ export default function DashboardPage() {
     };
 
     fetchData();
-  }, [router]);
+  }, []);
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
+      <div className="flex items-center justify-center p-12">
         <div className="text-center">
           <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary mx-auto"></div>
           <p className="mt-2 text-muted-foreground">Loading dashboard...</p>
@@ -142,155 +138,146 @@ export default function DashboardPage() {
   const { user, role } = data;
 
   return (
-    <div className="min-h-screen bg-background flex">
-      <Sidebar user={user} />
+    <div className="h-fit w-full">
+      <CommonSubHeader userName={user.name} role={role} />
       
-      <div className="flex-1 flex flex-col">
-        <Header page="Dashboard" user={user} />
-        
-        <main className="flex-1 p-6">
-          <div className="h-fit w-full">
-            <CommonSubHeader userName={user.name} role={role} />
-            
-            {/* Dashboard Content */}
-            <div className="mt-6">
-              {/* Creator Dashboard */}
-              <PermissionCheck role={role} allowedRoles={["creator"]}>
-                <div className="flex flex-col gap-6">
-                  {/* Stats Cards */}
-                  <div className="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-6">
-                    {/* Linked Accounts Card */}
-                    <Card>
-                      <CardHeader>
-                        <CardTitle className="flex items-center gap-2">
-                          <LinkIcon className="h-5 w-5" />
-                          Linked Accounts
-                        </CardTitle>
-                        <CardDescription>
-                          Manage your connected social and content platforms.
-                        </CardDescription>
-                      </CardHeader>
-                      <CardContent>
-                        <div className="text-3xl font-bold mb-2">
-                          {data.linkedAccounts?.length || 0}
-                        </div>
-                        <p className="text-sm text-muted-foreground mb-4">
-                          {data.linkedAccounts?.length === 0 
-                            ? "No accounts linked yet" 
-                            : `${data.linkedAccounts?.length} account(s) connected`}
-                        </p>
-                        <Button variant="default" className="w-full" asChild>
-                          <Link href="/accounts">
-                            View Accounts
-                            <ArrowRight className="ml-2 h-4 w-4" />
-                          </Link>
-                        </Button>
-                      </CardContent>
-                    </Card>
-
-                    {/* Editors Card */}
-                    <Card>
-                      <CardHeader>
-                        <CardTitle className="flex items-center gap-2">
-                          <Users className="h-5 w-5" />
-                          Editors
-                        </CardTitle>
-                        <CardDescription>
-                          Invite or manage users who help edit your content.
-                        </CardDescription>
-                      </CardHeader>
-                      <CardContent>
-                        <div className="text-3xl font-bold mb-2">
-                          {data.creatorMaps?.length || 0}
-                        </div>
-                        <p className="text-sm text-muted-foreground mb-4">
-                          {data.creatorMaps?.length === 0 
-                            ? "No editors invited yet" 
-                            : `${data.creatorMaps?.length} editor(s) working with you`}
-                        </p>
-                        <Button variant="default" className="w-full" asChild>
-                          <Link href="/editors">
-                            Manage Editors
-                            <ArrowRight className="ml-2 h-4 w-4" />
-                          </Link>
-                        </Button>
-                      </CardContent>
-                    </Card>
-
-                    {/* Performance Metrics Card */}
-                    <Card className="lg:col-span-1 md:col-span-2 lg:col-span-1">
-                      <CardHeader>
-                        <CardTitle className="flex items-center gap-2">
-                          <LayoutDashboard className="h-5 w-5" />
-                          Performance
-                        </CardTitle>
-                        <CardDescription>
-                          Overview of your content performance.
-                        </CardDescription>
-                      </CardHeader>
-                      <CardContent>
-                        <ChartAreaInteractive />
-                      </CardContent>
-                    </Card>
+      {/* Dashboard Content */}
+      <div className="mt-6">
+        {/* Creator Dashboard */}
+        <PermissionCheck role={role} allowedRoles={["creator"]}>
+          <div className="flex flex-col gap-6">
+            {/* Stats Cards */}
+            <div className="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-6">
+              {/* Linked Accounts Card */}
+              <Card>
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
+                    <LinkIcon className="h-5 w-5" />
+                    Linked Accounts
+                  </CardTitle>
+                  <CardDescription>
+                    Manage your connected social and content platforms.
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="text-3xl font-bold mb-2">
+                    {data.linkedAccounts?.length || 0}
                   </div>
-                </div>
-              </PermissionCheck>
+                  <p className="text-sm text-muted-foreground mb-4">
+                    {data.linkedAccounts?.length === 0 
+                      ? "No accounts linked yet" 
+                      : `${data.linkedAccounts?.length} account(s) connected`}
+                  </p>
+                  <Button variant="default" className="w-full" asChild>
+                    <Link href="/accounts">
+                      View Accounts
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Link>
+                  </Button>
+                </CardContent>
+              </Card>
 
-              {/* Editor Dashboard */}
-              <PermissionCheck role={role} allowedRoles={["editor"]}>
-                <div className="flex flex-col gap-6">
-                  <div className="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-6">
-                    {/* Creators Card */}
-                    <Card className="lg:col-span-3 md:col-span-2">
-                      <CardHeader>
-                        <CardTitle className="flex items-center gap-2">
-                          <Users className="h-5 w-5" />
-                          Creators
-                        </CardTitle>
-                        <CardDescription>
-                          Manage Creators that have invited you.
-                        </CardDescription>
-                      </CardHeader>
-                      <CardContent>
-                        <div className="text-3xl font-bold mb-2">
-                          {data.creatorMaps?.length || 0}
-                        </div>
-                        <p className="text-sm text-muted-foreground mb-4">
-                          {data.creatorMaps?.length === 0 
-                            ? "No creator invitations yet" 
-                            : `${data.creatorMaps?.length} creator(s) you work with`}
-                        </p>
-                        <Button variant="default" className="w-full sm:w-auto" asChild>
-                          <Link href="/creators">
-                            Manage Creators
-                            <ArrowRight className="ml-2 h-4 w-4" />
-                          </Link>
-                        </Button>
-                      </CardContent>
-                    </Card>
-
-                    {/* Performance Metrics for Editors */}
-                    <Card className="lg:col-span-3">
-                      <CardHeader>
-                        <CardTitle className="flex items-center gap-2">
-                          <LayoutDashboard className="h-5 w-5" />
-                          Performance Metrics
-                        </CardTitle>
-                        <CardDescription>
-                          Get insights on views, engagement, and growth.
-                        </CardDescription>
-                      </CardHeader>
-                      <CardContent>
-                        <ChartAreaInteractive />
-                      </CardContent>
-                    </Card>
+              {/* Editors Card */}
+              <Card>
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
+                    <Users className="h-5 w-5" />
+                    Editors
+                  </CardTitle>
+                  <CardDescription>
+                    Invite or manage users who help edit your content.
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="text-3xl font-bold mb-2">
+                    {data.creatorMaps?.length || 0}
                   </div>
-                </div>
-              </PermissionCheck>
+                  <p className="text-sm text-muted-foreground mb-4">
+                    {data.creatorMaps?.length === 0 
+                      ? "No editors invited yet" 
+                      : `${data.creatorMaps?.length} editor(s) working with you`}
+                  </p>
+                  <Button variant="default" className="w-full" asChild>
+                    <Link href="/editors">
+                      Manage Editors
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Link>
+                  </Button>
+                </CardContent>
+              </Card>
+
+              {/* Performance Metrics Card */}
+              <Card className="lg:col-span-1 md:col-span-2 lg:col-span-1">
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
+                    <LayoutDashboard className="h-5 w-5" />
+                    Performance
+                  </CardTitle>
+                  <CardDescription>
+                    Overview of your content performance.
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <ChartAreaInteractive />
+                </CardContent>
+              </Card>
             </div>
           </div>
-        </main>
+        </PermissionCheck>
+
+        {/* Editor Dashboard */}
+        <PermissionCheck role={role} allowedRoles={["editor"]}>
+          <div className="flex flex-col gap-6">
+            <div className="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-6">
+              {/* Creators Card */}
+              <Card className="lg:col-span-3 md:col-span-2">
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
+                    <Users className="h-5 w-5" />
+                    Creators
+                  </CardTitle>
+                  <CardDescription>
+                    Manage Creators that have invited you.
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="text-3xl font-bold mb-2">
+                    {data.creatorMaps?.length || 0}
+                  </div>
+                  <p className="text-sm text-muted-foreground mb-4">
+                    {data.creatorMaps?.length === 0 
+                      ? "No creator invitations yet" 
+                      : `${data.creatorMaps?.length} creator(s) you work with`}
+                  </p>
+                  <Button variant="default" className="w-full sm:w-auto" asChild>
+                    <Link href="/creators">
+                      Manage Creators
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Link>
+                  </Button>
+                </CardContent>
+              </Card>
+
+              {/* Performance Metrics for Editors */}
+              <Card className="lg:col-span-3">
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
+                    <LayoutDashboard className="h-5 w-5" />
+                    Performance Metrics
+                  </CardTitle>
+                  <CardDescription>
+                    Get insights on views, engagement, and growth.
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <ChartAreaInteractive />
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </PermissionCheck>
       </div>
     </div>
   );
 }
+

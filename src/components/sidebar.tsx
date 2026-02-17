@@ -6,31 +6,28 @@ import {
   Menu,
   X,
   LogOut,
-  LayoutDashboard,
-  User,
   ChevronLeft,
   ChevronRight,
   ChevronDown,
+  LayoutDashboard,
+  Users,
+  Link as LinkIcon,
+  HandHelping,
+  User,
+  Home,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useBetterAuthSignout } from "@/server/services/auth/auth-client";
-
-import { LucideIcon } from "lucide-react";
+import { NavLinks } from "@/models/navlinks";
+import { hasPermission } from "@/utils/permissions";
 
 interface SidebarProps {
   user?: {
     name?: string;
     email?: string;
     image?: string;
+    role?: string;
   };
-}
-
-interface NavItem {
-  label: string;
-  href: string;
-  icon: LucideIcon;
-  badge?: number;
-  submenu?: { label: string; href: string }[];
 }
 
 export function Sidebar({ user }: SidebarProps) {
@@ -49,10 +46,10 @@ export function Sidebar({ user }: SidebarProps) {
   const isActive = (href: string) =>
     currentPath === href || currentPath.startsWith(`${href}/`);
 
-  const menuItems: NavItem[] = [
-    { label: "Dashboard", href: "/dashboard", icon: LayoutDashboard },
-    { label: "Profile", href: "/profile", icon: User },
-  ];
+  const userRole = user?.role || "user";
+  const filteredMenuItems = NavLinks.filter((item) =>
+    hasPermission(userRole, item.accesibleRoles)
+  );
 
   const sidebarWidth = collapsed ? "w-20" : "w-64";
 
@@ -148,11 +145,10 @@ export function Sidebar({ user }: SidebarProps) {
 
           {/* Navigation */}
           <nav className="p-3 space-y-1 flex-1 overflow-y-auto">
-            {menuItems.map((item) => {
+            {filteredMenuItems.map((item) => {
               const Icon = item.icon;
               const active = isActive(item.href);
-              const hasSubmenu = item.submenu && item.submenu.length > 0;
-              const isExpanded = expandedMenu === item.label;
+              const hasSubmenu = false; // Placeholder for future use
 
               return (
                 <div key={item.label}>
@@ -163,72 +159,19 @@ export function Sidebar({ user }: SidebarProps) {
                       collapsed ? "justify-center" : " justify-start"
                     } `}
                     title={collapsed ? item.label : undefined}
-                    onClick={() => {
-                      if (hasSubmenu) {
-                        setExpandedMenu(isExpanded ? null : item.label);
-                      }
-                    }}
                   >
-                    {!hasSubmenu ? (
-                      <Link
-                        href={item.href}
-                        aria-current={active ? "page" : undefined}
-                        onClick={() => setIsOpen(false)}
-                        className="flex items-center gap-2 w-full"
-                      >
-                        <Icon className="h-4 w-4 flex-shrink-0" />
-                        {!collapsed && (
-                          <span className="flex-1 text-left">{item.label}</span>
-                        )}
-                        {!collapsed && item.badge && (
-                          <span className="ml-auto bg-red-500 text-white text-xs rounded-full px-2 py-0.5">
-                            {item.badge}
-                          </span>
-                        )}
-                      </Link>
-                    ) : (
-                      <div className="flex items-center gap-2 w-full">
-                        <Icon className="h-4 w-4 flex-shrink-0" />
-                        {!collapsed && (
-                          <>
-                            <span className="flex-1 text-left">
-                              {item.label}
-                            </span>
-                            <ChevronDown
-                              className={`h-4 w-4 ${
-                                isExpanded ? "rotate-180" : ""
-                              }`}
-                            />
-                          </>
-                        )}
-                      </div>
-                    )}
+                    <Link
+                      href={item.href}
+                      aria-current={active ? "page" : undefined}
+                      onClick={() => setIsOpen(false)}
+                      className="flex items-center gap-2 w-full"
+                    >
+                      <Icon className="h-4 w-4 flex-shrink-0" />
+                      {!collapsed && (
+                        <span className="flex-1 text-left">{item.label}</span>
+                      )}
+                    </Link>
                   </Button>
-
-                  {/* Submenu */}
-                  {hasSubmenu && isExpanded && !collapsed && item.submenu && (
-                    <div className="mt-2 ml-3 pl-3 border-l-2 border-primary/30 space-y-1">
-                      {item.submenu.map((subitem) => (
-                        <Button
-                          key={subitem.href}
-                          asChild
-                          variant={isActive(subitem.href) ? "default" : "ghost"}
-                          className="w-full justify-start text-sm"
-                        >
-                          <Link
-                            href={subitem.href}
-                            aria-current={
-                              isActive(subitem.href) ? "page" : undefined
-                            }
-                            onClick={() => setIsOpen(false)}
-                          >
-                            <span className="h-1 w-1 rounded-full bg-current mr-2" />
-                            {subitem.label}
-                          </Link>
-                        </Button>
-                      ))}
-                    </div>
-                  )}
                 </div>
               );
             })}
