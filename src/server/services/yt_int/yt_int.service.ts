@@ -14,7 +14,7 @@ export class YtIntService {
   constructor() {
     const clientId = process.env.GOOGLE_CLIENT_ID;
     const clientSecret = process.env.GOOGLE_CLIENT_SECRET;
-    const redirectUri = process.env.GOOGLE_REDIRECT_URI_YT || process.env.GOOGLE_REDIRECT_URI;
+    const redirectUri = process.env.GOOGLE_REDIRECT_URI;
 
     if (!clientId || !clientSecret) {
       throw new Error('Google credentials missing for YouTube integration');

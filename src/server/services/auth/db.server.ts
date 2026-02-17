@@ -26,10 +26,9 @@ const globalForPrisma = globalThis as unknown as {
 
 const prisma = globalForPrisma.prisma ?? prismaClientSingleton();
 
-export default prisma;
-export { prisma };
-
 if (process.env.NODE_ENV !== "production") globalForPrisma.prisma = prisma;
+
+export { prisma };
 
 /*
  * better-auth
@@ -117,6 +116,8 @@ export const auth = betterAuth({
     // }),
   ],
 });
+
+export default auth;
 
 // session
 export const getSession = async (request: NextRequest) => {

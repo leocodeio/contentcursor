@@ -146,7 +146,7 @@ export default function EditorsConnectPage() {
             {/* Page Header */}
             <CommonSubHeader
               userName="Connect Editor"
-              role="Send a collaboration request"
+              role="creator"
               variant="default"
             />
 

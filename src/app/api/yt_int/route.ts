@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { auth } from "@/lib/auth";
+import { auth } from "@/server/services/auth/db.server";
 import { ytIntService } from "@/server/services/yt_int/yt_int.service";
 
 export async function GET(req: NextRequest) {

@@ -318,7 +318,7 @@ export default function CreatorContributePage() {
                         asChild
                       >
                         <Link
-                          to={`/creators/${creatorId}/accounts/${folder.accountId}/folders/${folder.id}/open`}
+                          href={`/creators/${creatorId}/accounts/${folder.accountId}/folders/${folder.id}/open`}
                         >
                           <FileText className="h-4 w-4 mr-1" />
                           Open

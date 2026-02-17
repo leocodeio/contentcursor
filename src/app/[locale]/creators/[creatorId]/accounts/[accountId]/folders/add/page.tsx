@@ -150,7 +150,7 @@ export default function CreatorAddFolderPage() {
             {/* Page Header */}
             <CommonSubHeader
               userName="Create New Folder"
-              role="Add a new folder to organize your content"
+              role="editor"
               variant="default"
             />
 

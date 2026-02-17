@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { auth } from "@/lib/auth";
+import { auth } from "@/server/services/auth/db.server";
 import { mapService } from "@/server/services/map/map.service";
 
 export async function POST(req: NextRequest) {

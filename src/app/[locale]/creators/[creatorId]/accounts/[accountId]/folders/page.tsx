@@ -163,7 +163,7 @@ export default function CreatorFoldersIndexPage() {
               </div>
               <Button asChild>
                 <Link
-                  to={`/creators/${creatorId}/accounts/${accountId}/folders/add`}
+                  href={`/creators/${creatorId}/accounts/${accountId}/folders/add`}
                 >
                   <FolderPlus className="h-4 w-4 mr-2" />
                   Create Folder
@@ -209,14 +209,14 @@ export default function CreatorFoldersIndexPage() {
                       <div className="flex gap-2">
                         <Button variant="outline" size="sm" className="flex-1" asChild>
                           <Link
-                            to={`/creators/${creatorId}/accounts/${accountId}/folders/${folder.id}`}
+                            href={`/creators/${creatorId}/accounts/${accountId}/folders/${folder.id}`}
                           >
                             Open
                           </Link>
                         </Button>
                         <Button variant="outline" size="sm" className="flex-1" asChild>
                           <Link
-                            to={`/creators/${creatorId}/accounts/${accountId}/folders/${folder.id}/edit`}
+                            href={`/creators/${creatorId}/accounts/${accountId}/folders/${folder.id}/edit`}
                           >
                             Edit
                           </Link>
@@ -241,7 +241,7 @@ export default function CreatorFoldersIndexPage() {
                     </p>
                     <Button asChild>
                       <Link
-                        to={`/creators/${creatorId}/accounts/${accountId}/folders/add`}
+                        href={`/creators/${creatorId}/accounts/${accountId}/folders/add`}
                       >
                         <FolderPlus className="h-4 w-4 mr-2" />
                         Create First Folder
@@ -263,7 +263,7 @@ export default function CreatorFoldersIndexPage() {
                 </p>
                 <Button asChild variant="outline">
                   <Link
-                    to={`/contribute/${creatorId}/${accountId}`}
+                    href={`/contribute/${creatorId}/${accountId}`}
                   >
                     Go to Contributions
                   </Link>

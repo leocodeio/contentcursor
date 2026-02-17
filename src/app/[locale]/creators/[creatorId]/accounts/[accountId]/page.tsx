@@ -187,7 +187,7 @@ export default function CreatorAccountOverviewPage() {
                 <CardContent>
                   <Button asChild className="w-full" variant="outline">
                     <Link
-                      to={`/contribute/${creatorId}/${accountId}`}
+                      href={`/contribute/${creatorId}/${accountId}`}
                     >
                       Go to Contributions
                     </Link>
@@ -209,7 +209,7 @@ export default function CreatorAccountOverviewPage() {
                 <CardContent>
                   <Button asChild className="w-full" variant="outline">
                     <Link
-                      to={`/creators/${creatorId}/accounts/${accountId}/versions`}
+                      href={`/creators/${creatorId}/accounts/${accountId}/versions`}
                     >
                       View Versions
                     </Link>
@@ -231,14 +231,14 @@ export default function CreatorAccountOverviewPage() {
                 <CardContent className="space-y-3">
                   <Button asChild className="w-full" variant="outline">
                     <Link
-                      to={`/creators/${creatorId}/accounts/${accountId}/folders`}
+                      href={`/creators/${creatorId}/accounts/${accountId}/folders`}
                     >
                       View Folders
                     </Link>
                   </Button>
                   <Button asChild className="w-full">
                     <Link
-                      to={`/creators/${creatorId}/accounts/${accountId}/folders/add`}
+                      href={`/creators/${creatorId}/accounts/${accountId}/folders/add`}
                     >
                       Create Folder
                     </Link>

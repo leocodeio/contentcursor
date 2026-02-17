@@ -151,7 +151,7 @@ export default function EditorsSearchPage() {
             {/* Page Header */}
             <CommonSubHeader
               userName="Search Editor"
-              role="Find editors by email address"
+              role="creator"
               variant="default"
             />
 

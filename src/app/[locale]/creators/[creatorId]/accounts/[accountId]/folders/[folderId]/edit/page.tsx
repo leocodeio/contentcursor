@@ -168,7 +168,7 @@ export default function CreatorEditFolderPage() {
             {/* Page Header */}
             <CommonSubHeader
               userName="Edit Folder"
-              role="Update folder details"
+              role="editor"
               variant="default"
             />
 
